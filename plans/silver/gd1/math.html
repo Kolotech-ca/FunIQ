@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Grade 1 Math Fun Quiz</title>
+
+<style>
+body{
+font-family:Arial;
+background:linear-gradient(135deg,#b3ecff,#ffe0f0);
+text-align:center;
+padding:20px;
+}
+
+.quiz-box{
+background:white;
+max-width:600px;
+margin:auto;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+button{
+display:block;
+width:80%;
+margin:10px auto;
+padding:14px;
+font-size:18px;
+border:none;
+border-radius:12px;
+background:#4CAF50;
+color:white;
+cursor:pointer;
+}
+
+button:hover{
+background:#45a049;
+}
+
+#nextBtn{
+background:#ff9800;
+}
+
+</style>
+</head>
+
+<body>
+
+
+
+<div class="quiz-box">
+<h3>🎮 Grade 1 Math Quiz</h3>
+<h2 id="question"></h2>
+
+<div id="answers"></div>
+
+<h3 id="feedback"></h3>
+
+<div id="stars"></div>
+
+<button id="nextBtn" onclick="nextQuestion()" style="display:none;">
+Next ➜
+</button>
+
+</div>
+
+<script>
+
+const quiz=[
+
+{question:"2 + 1 = ?",answers:["1","3","4","2"],correct:"3"},
+{question:"5 - 2 = ?",answers:["3","2","4","1"],correct:"3"},
+{question:"1 + 4 = ?",answers:["5","4","3","2"],correct:"5"},
+{question:"3 + 3 = ?",answers:["5","6","7","4"],correct:"6"},
+{question:"6 - 1 = ?",answers:["5","4","3","2"],correct:"5"},
+{question:"Which number is bigger?",answers:["2","7","3","1"],correct:"7"},
+{question:"4 + 2 = ?",answers:["6","5","7","8"],correct:"6"},
+{question:"5 - 3 = ?",answers:["2","3","4","1"],correct:"2"},
+{question:"What comes after 8?",answers:["7","9","10","6"],correct:"9"},
+{question:"How many apples? 🍎🍎🍎",answers:["2","3","4","5"],correct:"3"}
+
+];
+
+let currentQuestion=0;
+let score=0;
+
+function loadQuestion(){
+
+document.getElementById("feedback").innerHTML="";
+document.getElementById("stars").innerHTML="";
+document.getElementById("nextBtn").style.display="none";
+
+let q=quiz[currentQuestion];
+
+document.getElementById("question").innerHTML=
+"Question "+(currentQuestion+1)+" / 10<br><br>"+q.question;
+
+let answersHTML="";
+
+q.answers.forEach(answer=>{
+answersHTML+=`<button onclick="checkAnswer('${answer}')">${answer}</button>`;
+});
+
+document.getElementById("answers").innerHTML=answersHTML;
+
+}
+
+function checkAnswer(answer){
+
+let correct=quiz[currentQuestion].correct;
+
+if(answer===correct){
+
+score++;
+document.getElementById("feedback").innerHTML="✅ Correct!";
+document.getElementById("stars").innerHTML="⭐ ⭐ ⭐";
+
+}else{
+
+document.getElementById("feedback").innerHTML="❌ Correct: "+correct;
+
+}
+
+document.getElementById("nextBtn").style.display="block";
+
+}
+
+function nextQuestion(){
+
+currentQuestion++;
+
+if(currentQuestion<quiz.length){
+
+loadQuestion();
+
+}else{
+
+document.querySelector(".quiz-box").innerHTML=
+`<h2>🎉 Finished!</h2>
+<h3>Your Score: ${score} / 10</h3>
+<button onclick="location.reload()">Play Again</button>`;
+
+}
+
+}
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Grade 1 Word Match Game</title>
+
+<style>
+
+body{
+font-family:Arial;
+text-align:center;
+background:linear-gradient(135deg,#b8ecff,#ffe3f1);
+padding:20px;
+}
+
+h1{
+color:#ff3d7f;
+}
+
+.game-box{
+background:white;
+max-width:650px;
+margin:auto;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.picture{
+font-size:90px;
+margin:20px;
+}
+
+.word{
+display:inline-block;
+padding:12px 20px;
+margin:10px;
+background:#4CAF50;
+color:white;
+border-radius:10px;
+cursor:grab;
+font-size:20px;
+}
+
+.dropzone{
+border:3px dashed #888;
+padding:25px;
+margin:20px auto;
+width:200px;
+border-radius:12px;
+font-size:18px;
+}
+
+#nextBtn{
+padding:12px 20px;
+font-size:18px;
+border:none;
+background:#ff9800;
+color:white;
+border-radius:10px;
+cursor:pointer;
+display:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="game-box">
+<h3>🎮 Word Match Game</h3>
+<h2 id="question"></h2>
+
+<div class="picture" id="picture"></div>
+
+<div class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+Drop word here
+</div>
+
+<div id="words"></div>
+
+<h3 id="feedback"></h3>
+
+<button id="nextBtn" onclick="nextQuestion()">Next ➜</button>
+
+</div>
+
+<script>
+
+const quiz=[
+
+{emoji:"🐱",answer:"Cat",words:["Cat","Dog","Ball"]},
+{emoji:"🐶",answer:"Dog",words:["Fish","Dog","Cow"]},
+{emoji:"🍎",answer:"Apple",words:["Apple","Car","Pen"]},
+{emoji:"🚗",answer:"Car",words:["Car","Book","Table"]},
+{emoji:"🐟",answer:"Fish",words:["Fish","Dog","Ball"]},
+{emoji:"⚽",answer:"Ball",words:["Chair","Ball","Sun"]},
+{emoji:"☀️",answer:"Sun",words:["Moon","Sun","Apple"]},
+{emoji:"📚",answer:"Book",words:["Book","Pen","Cat"]},
+{emoji:"🖐",answer:"Hand",words:["Hand","Car","Dog"]},
+{emoji:"🌙",answer:"Moon",words:["Sun","Moon","Ball"]}
+
+];
+
+let current=0;
+let score=0;
+
+function loadQuestion(){
+
+document.getElementById("feedback").innerHTML="";
+document.getElementById("nextBtn").style.display="none";
+
+let q=quiz[current];
+
+document.getElementById("question").innerHTML=
+"Question "+(current+1)+" / 10";
+
+document.getElementById("picture").innerHTML=q.emoji;
+
+let wordsHTML="";
+
+q.words.sort(()=>Math.random()-0.5);
+
+q.words.forEach(word=>{
+wordsHTML+=`
+<div class="word" draggable="true"
+ondragstart="drag(event)" id="${word}">
+${word}
+</div>`;
+});
+
+document.getElementById("words").innerHTML=wordsHTML;
+
+}
+
+function allowDrop(ev){
+ev.preventDefault();
+}
+
+function drag(ev){
+ev.dataTransfer.setData("text",ev.target.id);
+}
+
+function drop(ev){
+
+ev.preventDefault();
+
+let data=ev.dataTransfer.getData("text");
+
+let correct=quiz[current].answer;
+
+if(data===correct){
+
+score++;
+
+document.getElementById("feedback").innerHTML=
+"✅ Great Job!";
+
+}else{
+
+document.getElementById("feedback").innerHTML=
+"❌ Correct answer: "+correct;
+
+}
+
+document.getElementById("nextBtn").style.display="block";
+
+}
+
+function nextQuestion(){
+
+current++;
+
+if(current<quiz.length){
+
+loadQuestion();
+
+}else{
+
+document.querySelector(".game-box").innerHTML=
+`
+<h2>🎉 Game Finished!</h2>
+<h3>Your Score: ${score} / 10</h3>
+<button onclick="location.reload()">Play Again</button>
+`;
+
+}
+
+}
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>

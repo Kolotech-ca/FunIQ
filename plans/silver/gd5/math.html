@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Grade 3 Math Game</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+body{
+font-family:'Comic Sans MS',cursive;
+background:linear-gradient(to right,#bde0fe,#ffc8dd);
+text-align:center;
+padding:20px;
+}
+
+.quiz-box{
+background:white;
+max-width:600px;
+margin:auto;
+padding:25px;
+border-radius:15px;
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+.option{
+background:#d0f0ff;
+padding:12px;
+margin:8px 0;
+border-radius:10px;
+cursor:pointer;
+}
+
+.option:hover{background:#ffd6eb;}
+
+.feedback{font-size:20px;margin-top:10px;}
+.score{font-size:28px;color:#ff4da6;margin-top:20px;}
+.stars{font-size:24px;color:#FFD700;margin:10px;}
+
+</style>
+</head>
+
+<body>
+
+<div class="quiz-box">
+
+<h2>📘 Grade 5 Math Game</h2>
+
+<h3 id="question"></h3>
+<div id="options"></div>
+
+<div id="feedback" class="feedback"></div>
+<div id="stars" class="stars"></div>
+<div id="score" class="score"></div>
+
+<button onclick="location.reload()">Restart</button>
+
+</div>
+
+<script>
+
+const quiz=[
+{q:"125 + 375 = ?", o:["500","450","520","480"], a:"500"},
+{q:"600 - 245 = ?", o:["355","365","345","350"], a:"355"},
+{q:"12 × 9 = ?", o:["108","96","112","120"], a:"108"},
+{q:"144 ÷ 12 = ?", o:["12","11","13","10"], a:"12"},
+{q:"Which is a prime number?", o:["13","12","15","18"], a:"13"},
+{q:"50% of 200 = ?", o:["100","50","150","200"], a:"100"},
+{q:"25 × 4 = ?", o:["100","90","80","75"], a:"100"}
+];
+
+let current=0;
+let score=0;
+let stars=0;
+
+const q=document.getElementById("question");
+const opt=document.getElementById("options");
+const feedback=document.getElementById("feedback");
+const scoreEl=document.getElementById("score");
+const starsEl=document.getElementById("stars");
+
+function loadQuestion(){
+
+let data=quiz[current];
+q.innerText=data.q;
+opt.innerHTML="";
+
+data.o.forEach(option=>{
+let div=document.createElement("div");
+div.className="option";
+div.innerText=option;
+div.onclick=()=>check(option);
+opt.appendChild(div);
+});
+
+}
+
+function check(answer){
+
+if(answer===quiz[current].a){
+score++;
+stars++;
+feedback.innerHTML="Correct!";
+}
+else{
+feedback.innerHTML="Wrong! Correct: "+quiz[current].a;
+}
+
+starsEl.innerHTML="⭐".repeat(stars);
+
+current++;
+
+if(current<quiz.length){
+setTimeout(loadQuestion,1000);
+}
+else{
+finish();
+}
+
+}
+
+function finish(){
+q.innerHTML="Quiz Completed!";
+opt.innerHTML="";
+scoreEl.innerHTML="Score: "+score+" / "+quiz.length;
+}
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
