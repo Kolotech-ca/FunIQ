@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FunIQ.ca | Fun Learning for Grades 1–6</title>
+
+<meta name="description" content="FunIQ.ca offers fun self-learning for kids from Grade 1 to Grade 6. Practice Math, Science, English and GK with 1000s of activities.">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Poppins;
+margin:0;
+background:#f7fbff;
+color:#333;
+}
+
+/* NAVBAR */
+
+.navbar{
+position:sticky;
+top:0;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px 40px;
+background:linear-gradient(90deg,#ff4fa3,#2da9ff);
+z-index:1000;
+}
+
+.logo img{
+height:50px;
+}
+
+.menu a{
+margin:0 12px;
+text-decoration:none;
+color:white;
+font-weight:600;
+}
+
+/* HERO */
+
+.hero{
+text-align:center;
+padding:80px 20px 50px 20px;
+background:linear-gradient(180deg,#ffffff,#f2f9ff);
+}
+
+.hero h1{
+font-size:46px;
+color:#ff4fa3;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:20px;
+margin:6px 0;
+}
+
+.hero button{
+margin-top:20px;
+padding:14px 30px;
+font-size:16px;
+border:none;
+border-radius:8px;
+background:linear-gradient(90deg,#ff4fa3,#2da9ff);
+color:white;
+cursor:pointer;
+transition:.3s;
+}
+
+.hero button:hover{
+transform:scale(1.05);
+}
+
+/* SECTION */
+
+.section{
+max-width:1100px;
+margin:auto;
+padding:40px 20px;
+}
+
+.section h2{
+text-align:center;
+font-size:34px;
+color:#2da9ff;
+margin-bottom:25px;
+}
+
+/* GRADE GRID */
+
+.grade-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.grade-card{
+background:white;
+padding:25px;
+border-radius:14px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+transition:.3s;
+font-size:18px;
+font-weight:600;
+cursor:pointer;
+}
+
+.grade-card:hover{
+transform:translateY(-8px);
+}
+
+.grade-icon{
+font-size:40px;
+margin-bottom:10px;
+}
+
+.grade-card a{
+text-decoration:none;
+color:#ff4fa3;
+}
+
+/* SUBJECT GRID */
+
+.subject-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+.subject-card{
+background:white;
+padding:25px;
+border-radius:14px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+transition:.3s;
+}
+
+.subject-card:hover{
+transform:translateY(-8px);
+}
+
+.subject-card img{
+width:60px;
+margin-bottom:10px;
+}
+
+.subject-card a{
+text-decoration:none;
+font-weight:600;
+color:#ff4fa3;
+}
+
+/* FEATURES */
+
+.features{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.feature{
+background:white;
+padding:18px;
+border-radius:10px;
+box-shadow:0 5px 12px rgba(0,0,0,.08);
+text-align:center;
+}
+
+/* FOOTER */
+
+footer{
+margin-top:40px;
+background:linear-gradient(90deg,#2da9ff,#ff4fa3);
+color:white;
+padding:40px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+footer a{
+color:white;
+text-decoration:none;
+}
+
+/* SOCIAL ICONS */
+
+.social-icons img{
+width:30px;
+margin-right:10px;
+filter: drop-shadow(1px 1px 1px rgba(0,0,0,.3));
+transition:.3s;
+}
+
+.social-icons img:hover{
+transform:scale(1.2);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+<div class="logo">
+<img src="logo.png" alt="FunIQ Logo">
+</div>
+
+<div class="menu">
+
+<a href="#grades">Grades</a>
+<a href="#subjects">Subjects</a>
+<a href="#worksheets">Worksheets</a>
+
+<a href="/bronze/bronze.html">Bronze</a>
+<a href="/silver/silver.html">Silver</a>
+<a href="/gold/gold.html">Gold</a>
+<a href="/platinum/platinum.html">Platinum</a>
+<a href="/unlimited/unlimited.html">Math Unlimited</a>
+
+</div>
+
+</div>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h1>Fun Learning for Grades 1–6</h1>
+
+<p>Math • Science • English • General Knowledge</p>
+
+<p>1000+ Activities • No Login Required • Unlimited Learning</p>
+
+<button onclick="document.getElementById('grades').scrollIntoView()">
+Start Learning
+</button>
+
+</section>
+
+<!-- GRADES -->
+
+<section class="section" id="grades">
+
+<h2>Browse by Grade</h2>
+
+<div class="grade-grid">
+
+<div class="grade-card">
+<div class="grade-icon">🎒</div>
+<a href="grade1.html">Grade 1</a>
+</div>
+
+<div class="grade-card">
+<div class="grade-icon">📚</div>
+<a href="grade2.html">Grade 2</a>
+</div>
+
+<div class="grade-card">
+<div class="grade-icon">🧮</div>
+<a href="grade3.html">Grade 3</a>
+</div>
+
+<div class="grade-card">
+<div class="grade-icon">✏</div>
+<a href="grade4.html">Grade 4</a>
+</div>
+
+<div class="grade-card">
+<div class="grade-icon">🔬</div>
+<a href="grade5.html">Grade 5</a>
+</div>
+
+<div class="grade-card">
+<div class="grade-icon">🌎</div>
+<a href="grade6.html">Grade 6</a>
+</div>
+
+</div>
+
+</section>
+
+<!-- SUBJECTS -->
+
+<section class="section" id="subjects">
+
+<h2>Explore Subjects</h2>
+
+<div class="subject-grid">
+
+<div class="subject-card">
+<img src="https://img.icons8.com/color/96/math.png">
+<br>
+<a href="math.html">Math</a>
+</div>
+
+<div class="subject-card">
+<img src="https://img.icons8.com/color/96/test-tube.png">
+<br>
+<a href="science.html">Science</a>
+</div>
+
+<div class="subject-card">
+<img src="https://img.icons8.com/color/96/book.png">
+<br>
+<a href="english.html">English</a>
+</div>
+
+<div class="subject-card">
+<img src="https://img.icons8.com/color/96/brain.png">
+<br>
+<a href="gk.html">General Knowledge</a>
+</div>
+
+</div>
+
+</section>
+
+<!-- BUY PRINTABLE WORKSHEETS -->
+
+<section class="section" id="worksheets">
+
+<h2>Buy Printable Worksheets</h2>
+
+<div class="grade-grid">
+
+<div class="grade-card">
+<div class="grade-icon">🎒</div>
+<a href="worksheets/grade1.html">Grade 1 Worksheets</a>
+</div>
+
+<div class="grade-card">
+<div class="grade-icon">📚</div>
+<a href="worksheets/grade2.html">Grade 2 Worksheets</a>
+</div>
+
+<div class="grade-card">
+<div class="grade-icon">🧮</div>
+<a href="worksheets/grade3.html">Grade 3 Worksheets</a>
+</div>
+
+<div class="grade-card">
+<div class="grade-icon">✏</div>
+<a href="worksheets/grade4.html">Grade 4 Worksheets</a>
+</div>
+
+<div class="grade-card">
+<div class="grade-icon">🔬</div>
+<a href="worksheets/grade5.html">Grade 5 Worksheets</a>
+</div>
+
+<div class="grade-card">
+<div class="grade-icon">🌎</div>
+<a href="worksheets/grade6.html">Grade 6 Worksheets</a>
+</div>
+
+</div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="section">
+
+<h2>Why Kids Love FunIQ</h2>
+
+<div class="features">
+
+<div class="feature">✔ Learn through fun activities</div>
+<div class="feature">✔ No login required</div>
+<div class="feature">✔ Unlimited usage</div>
+<div class="feature">✔ 1000s of activities</div>
+<div class="feature">✔ Printable worksheets</div>
+<div class="feature">✔ Works on mobile & tablets</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-grid">
+
+<div>
+<h3>FunIQ.ca</h3>
+<p>Fun self-learning platform for kids from Grade 1 to Grade 6.</p>
+</div>
+
+<div>
+<h3>Quick Links</h3>
+<a href="#grades">Grades</a><br>
+<a href="#subjects">Subjects</a><br>
+<a href="#worksheets">Worksheets</a>
+</div>
+
+<div>
+<h3>Legal</h3>
+<a href="#">Privacy Policy</a><br>
+<a href="#">Terms</a>
+</div>
+
+<div>
+<h3>Follow Us</h3>
+<div class="social-icons">
+<a href="#"><img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook"></a>
+<a href="#"><img src="https://img.icons8.com/color/48/instagram-new.png" alt="Instagram"></a>
+<a href="#"><img src="https://img.icons8.com/color/48/youtube-play.png" alt="YouTube"></a>
+</div>
+</div>
+
+</div>
+
+<p style="text-align:center;margin-top:20px">
+© 2026 FunIQ.ca
+</p>
+
+</footer>
+
+</body>
+
+</html>
