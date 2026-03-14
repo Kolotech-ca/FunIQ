@@ -1,0 +1,97 @@
+Grade,Subject,Question,OptionA,OptionB,OptionC,OptionD,Answer
+1,Math,What is 1 + 1?,2,3,4,5,A
+1,Math,What is 2 + 2?,4,3,5,6,A
+1,Math,What is 3 + 3?,6,7,8,9,A
+1,Math,What is 4 + 1?,5,4,6,7,A
+1,Science,Which of these is essential for life? ,Water,Air,Fire,Earth,A
+1,Science,Which of these is a gas? ,Air,Water,Fire,Earth,A
+1,Science,Which planet do we live on? ,Earth,Mars,Venus,Jupiter,A
+1,Science,Which is hot and bright? ,Sun,Moon,Earth,Mars,A
+1,English,Choose the correct word: 'I ___ to school.',go,goes,gone,going,B
+1,English,Choose the correct word: 'She ___ happy.',is,are,am,be,A
+1,English,Choose the correct word: 'They ___ playing.',is,are,am,be,B
+1,English,Choose the correct word: 'He ___ a book.',read,reads,reading,red,B
+1,GK,What is the capital of Canada?,Ottawa,Toronto,Vancouver,Montreal,A
+1,GK,Which country is north of USA?,Canada,Mexico,Brazil,France,A
+1,GK,Which is the largest continent?,Asia,Europe,Africa,Australia,A
+1,GK,Which ocean is the largest?,Pacific,Atlantic,Indian,Arctic,A
+2,Math,What is 2 + 3?,5,4,6,7,A
+2,Math,What is 4 + 5?,9,8,10,11,A
+2,Math,What is 3 + 6?,9,8,10,11,A
+2,Math,What is 7 + 2?,9,8,10,11,A
+2,Science,Which of these is essential for life? ,Water,Air,Fire,Earth,A
+2,Science,Which is a planet? ,Mars,Earth,Sun,Moon,D
+2,Science,Which is a star? ,Sun,Earth,Moon,Mars,A
+2,Science,Which is liquid at room temp? ,Water,Ice,Fire,Air,A
+2,English,Choose the correct word: 'I ___ playing.',am,is,are,be,A
+2,English,Choose the correct word: 'They ___ happy.',are,is,am,be,A
+2,English,Choose the correct word: 'She ___ reading.',is,are,am,be,B
+2,English,Choose the correct word: 'He ___ a pen.',has,have,had,having,A
+2,GK,What is the capital of Canada?,Ottawa,Toronto,Vancouver,Montreal,A
+2,GK,Which continent has the most people?,Asia,Europe,Africa,Australia,A
+2,GK,Which animal is a mammal?,Dog,Crocodile,Shark,Eagle,A
+2,GK,Which is a flying bird?,Eagle,Dog,Cat,Fish,A
+3,Math,What is 5 + 5?,10,9,11,12,A
+3,Math,What is 6 + 7?,13,12,14,15,A
+3,Math,What is 8 + 4?,12,11,13,14,A
+3,Math,What is 7 + 3?,10,9,11,12,A
+3,Science,Which is a gas essential for life? ,Oxygen,Water,Fire,Earth,A
+3,Science,Which is a planet in solar system? ,Mars,Sun,Moon,Earth,A
+3,Science,Which is hot? ,Sun,Moon,Earth,Mars,A
+3,Science,Which is liquid? ,Water,Ice,Fire,Air,A
+3,English,Choose the correct word: 'I ___ happy.',am,is,are,be,A
+3,English,Choose the correct word: 'She ___ playing.',is,are,am,be,B
+3,English,Choose the correct word: 'They ___ running.',are,is,am,be,A
+3,English,Choose the correct word: 'He ___ a book.',reads,read,reading,red,A
+3,GK,What is the capital of Canada?,Ottawa,Toronto,Vancouver,Montreal,A
+3,GK,Which country is north of USA?,Canada,Mexico,Brazil,France,A
+3,GK,Which is the largest continent?,Asia,Europe,Africa,Australia,A
+3,GK,Which ocean is the largest?,Pacific,Atlantic,Indian,Arctic,A
+4,Math,What is 8 + 1?,9,8,10,11,A
+4,Math,What is 7 + 5?,12,11,13,14,A
+4,Math,What is 6 + 6?,12,11,13,14,A
+4,Math,What is 9 + 2?,11,10,12,13,A
+4,Science,Which of these is essential for life? ,Water,Air,Fire,Earth,A
+4,Science,Which is a star? ,Sun,Earth,Moon,Mars,A
+4,Science,Which is liquid at room temp? ,Water,Ice,Fire,Air,A
+4,Science,Which planet do we live on? ,Earth,Mars,Venus,Jupiter,A
+4,English,Choose the correct word: 'I ___ to school.',go,goes,gone,going,B
+4,English,Choose the correct word: 'She ___ happy.',is,are,am,be,A
+4,English,Choose the correct word: 'They ___ playing.',are,is,am,be,A
+4,English,Choose the correct word: 'He ___ a pen.',has,have,had,having,A
+4,GK,What is the capital of Canada?,Ottawa,Toronto,Vancouver,Montreal,A
+4,GK,Which continent has the most people?,Asia,Europe,Africa,Australia,A
+4,GK,Which animal is a mammal?,Dog,Crocodile,Shark,Eagle,A
+4,GK,Which is a flying bird?,Eagle,Dog,Cat,Fish,A
+5,Math,What is 10 + 5?,15,14,16,17,A
+5,Math,What is 7 + 8?,15,14,16,17,A
+5,Math,What is 9 + 6?,15,14,16,17,A
+5,Math,What is 8 + 7?,15,14,16,17,A
+5,Science,Which gas do humans need? ,Oxygen,Water,Fire,Earth,A
+5,Science,Which planet is known as Red Planet? ,Mars,Earth,Venus,Jupiter,A
+5,Science,Which is hot and bright? ,Sun,Moon,Earth,Mars,A
+5,Science,Which is liquid at room temp? ,Water,Ice,Fire,Air,A
+5,English,Choose the correct word: 'I ___ happy.',am,is,are,be,A
+5,English,Choose the correct word: 'She ___ playing.',is,are,am,be,B
+5,English,Choose the correct word: 'They ___ running.',are,is,am,be,A
+5,English,Choose the correct word: 'He ___ a book.',reads,read,reading,red,A
+5,GK,What is the capital of Canada?,Ottawa,Toronto,Vancouver,Montreal,A
+5,GK,Which country is north of USA?,Canada,Mexico,Brazil,France,A
+5,GK,Which is the largest continent?,Asia,Europe,Africa,Australia,A
+5,GK,Which ocean is the largest?,Pacific,Atlantic,Indian,Arctic,A
+6,Math,What is 12 + 3?,15,14,16,17,A
+6,Math,What is 11 + 4?,15,14,16,17,A
+6,Math,What is 10 + 5?,15,14,16,17,A
+6,Math,What is 9 + 6?,15,14,16,17,A
+6,Science,Which is essential for life? ,Water,Air,Fire,Earth,A
+6,Science,Which is a star? ,Sun,Earth,Moon,Mars,A
+6,Science,Which planet do we live on? ,Earth,Mars,Venus,Jupiter,A
+6,Science,Which is liquid at room temp? ,Water,Ice,Fire,Air,A
+6,English,Choose the correct word: 'I ___ to school.',go,goes,gone,going,B
+6,English,Choose the correct word: 'She ___ happy.',is,are,am,be,A
+6,English,Choose the correct word: 'They ___ playing.',are,is,am,be,A
+6,English,Choose the correct word: 'He ___ a pen.',has,have,had,having,A
+6,GK,What is the capital of Canada?,Ottawa,Toronto,Vancouver,Montreal,A
+6,GK,Which continent has the most people?,Asia,Europe,Africa,Australia,A
+6,GK,Which animal is a mammal?,Dog,Crocodile,Shark,Eagle,A
+6,GK,Which is a flying bird?,Eagle,Dog,Cat,Fish,A

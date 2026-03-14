@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FunIQ Silver Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<style>
+body { margin:0; font-family:'Nunito',sans-serif; background:#eaf6ff; }
+
+/* Navbar */
+.navbar { position:fixed; top:0; left:0; width:100%; background:linear-gradient(90deg,#ff4fa3,#2da9ff); display:flex; align-items:center; justify-content:space-between; padding:10px 20px; z-index:1000; box-shadow:0 2px 5px rgba(0,0,0,0.2); font-family:'Poppins',sans-serif; }
+.logo { font-size:24px; font-weight:700; color:white; text-decoration:none; }
+.menu-container { display:flex; align-items:center; margin:0 auto; gap:20px; }
+.menu { display:flex; gap:20px; align-items:center; }
+.dropdown { position:relative; }
+.dropbtn { background:none; border:none; color:white; font-size:16px; cursor:pointer; padding:8px 12px; font-weight:600; }
+.dropdown-content { max-height:0; overflow:hidden; position:absolute; top:100%; left:0; background:#ffe6f3; min-width:150px; box-shadow:0 4px 6px rgba(0,0,0,0.2); z-index:1000; border-radius:6px; transition:max-height 0.3s ease; }
+.dropdown-content a { color:#2da9ff; padding:10px 12px; text-decoration:none; display:block; font-weight:600; }
+.dropdown-content a:hover { background:#ff4fa3; color:#fff; }
+.dropdown:hover .dropdown-content { max-height:500px; }
+.buy-link { color:white; text-decoration:none; font-weight:700; padding:8px 12px; border-radius:5px; transition:background 0.2s; }
+.buy-link:hover { background:#ffe6f3; color:#ff4fa3; }
+
+/* Silver square next to Buy Worksheets */
+.square { width:30px; height:30px; background:#C0C0C0; color:white; font-weight:700; display:flex; align-items:center; justify-content:center; border-radius:4px; font-family:'Poppins',sans-serif; font-size:16px; margin-left:10px; }
+
+/* Hamburger */
+.hamburger { display:none; flex-direction:column; cursor:pointer; }
+.hamburger div { width:25px; height:3px; background:white; margin:4px 0; }
+
+/* Section 2 */
+#content-section { margin-top:70px; border:5px solid #C0C0C0; padding:0; min-height:400px; border-radius:10px; background:#fff; }
+#content-section object { width:100%; height:500px; border:none; }
+
+/* Buy Worksheets */
+.worksheets-section { margin:20px; display:grid; grid-template-columns:repeat(3,1fr); gap:15px; border:5px solid #C0C0C0; border-radius:10px; padding:20px; background:#f2f2f2; }
+.worksheets-section h2 { grid-column:1/-1; text-align:center; font-family:'Poppins',sans-serif; margin-bottom:15px; color:#C0C0C0; }
+.worksheets-section .card { border:2px solid #C0C0C0; border-radius:10px; padding:20px; text-align:center; background:#ffe6f3; cursor:pointer; font-weight:700; font-family:'Poppins',sans-serif; transition:transform 0.2s, box-shadow 0.2s, background 0.2s; }
+.worksheets-section .card:hover { transform:scale(1.05); box-shadow:0 4px 12px rgba(0,0,0,0.3); background:#C0C0C0; color:#fff; }
+
+/* Footer */
+footer { background:linear-gradient(90deg,#ff4fa3,#2da9ff); color:white; text-align:center; padding:20px; margin-top:20px; font-family:'Nunito',sans-serif; }
+footer a { color:#ffe6f3; text-decoration:none; font-weight:600; }
+footer a:hover { color:#ff4fa3; }
+
+/* Responsive */
+@media screen and (max-width:900px){ .menu{display:none; flex-direction:column; background:linear-gradient(90deg,#ff4fa3,#2da9ff); width:100%; position:absolute; top:60px; left:0; padding:10px 0;} .menu.active{display:flex;} .hamburger{display:flex;} .dropdown-content{position:relative; background:#ffe6f3; box-shadow:none; border-radius:0;}.worksheets-section{grid-template-columns:repeat(1,1fr);} }
+@media screen and (min-width:600px) and (max-width:900px){ .worksheets-section{grid-template-columns:repeat(2,1fr);} }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <a href="#" class="logo">FunIQ.ca</a>
+  <div class="hamburger" onclick="toggleMenu()"><div></div><div></div><div></div></div>
+  <div class="menu-container">
+    <div class="menu" id="nav-menu">
+      <!-- Grades 1-6 Dropdowns (same as bronze) -->
+      <div class="dropdown"><button class="dropbtn">Grade 1</button>
+        <div class="dropdown-content">
+          <a href="#" onclick="loadHTML('gd1_math.html', this)">Math</a>
+          <a href="#" onclick="loadHTML('gd1_science.html', this)">Science</a>
+          <a href="#" onclick="loadHTML('gd1_english.html', this)">English</a>
+          <a href="#" onclick="loadHTML('gd1_gk.html', this)">GK</a>
+        </div>
+      </div>
+      <!-- Repeat Grade 2-6 similarly -->
+      <div class="dropdown"><button class="dropbtn">Grade 2</button>
+        <div class="dropdown-content">
+          <a href="#" onclick="loadHTML('gd2_math.html', this)">Math</a>
+          <a href="#" onclick="loadHTML('gd2_science.html', this)">Science</a>
+          <a href="#" onclick="loadHTML('gd2_english.html', this)">English</a>
+          <a href="#" onclick="loadHTML('gd2_gk.html', this)">GK</a>
+        </div>
+      </div>
+      <div class="dropdown"><button class="dropbtn">Grade 3</button>
+        <div class="dropdown-content">
+          <a href="#" onclick="loadHTML('gd3_math.html', this)">Math</a>
+          <a href="#" onclick="loadHTML('gd3_science.html', this)">Science</a>
+          <a href="#" onclick="loadHTML('gd3_english.html', this)">English</a>
+          <a href="#" onclick="loadHTML('gd3_gk.html', this)">GK</a>
+        </div>
+      </div>
+      <div class="dropdown"><button class="dropbtn">Grade 4</button>
+        <div class="dropdown-content">
+          <a href="#" onclick="loadHTML('gd4_math.html', this)">Math</a>
+          <a href="#" onclick="loadHTML('gd4_science.html', this)">Science</a>
+          <a href="#" onclick="loadHTML('gd4_english.html', this)">English</a>
+          <a href="#" onclick="loadHTML('gd4_gk.html', this)">GK</a>
+        </div>
+      </div>
+      <div class="dropdown"><button class="dropbtn">Grade 5</button>
+        <div class="dropdown-content">
+          <a href="#" onclick="loadHTML('gd5_math.html', this)">Math</a>
+          <a href="#" onclick="loadHTML('gd5_science.html', this)">Science</a>
+          <a href="#" onclick="loadHTML('gd5_english.html', this)">English</a>
+          <a href="#" onclick="loadHTML('gd5_gk.html', this)">GK</a>
+        </div>
+      </div>
+      <div class="dropdown"><button class="dropbtn">Grade 6</button>
+        <div class="dropdown-content">
+          <a href="#" onclick="loadHTML('gd6_math.html', this)">Math</a>
+          <a href="#" onclick="loadHTML('gd6_science.html', this)">Science</a>
+          <a href="#" onclick="loadHTML('gd6_english.html', this)">English</a>
+          <a href="#" onclick="loadHTML('gd6_gk.html', this)">GK</a>
+        </div>
+      </div>
+
+      <a href="#worksheets" class="buy-link">Buy Worksheets</a>
+    </div>
+    <div class="square">Silver</div>
+  </div>
+</nav>
+
+<!-- Section 2 -->
+<section id="content-section">
+  <object id="content-object" type="text/html" data=""></object>
+</section>
+
+<!-- Buy Worksheets -->
+<section class="worksheets-section" id="worksheets">
+  <h2>Buy Printable Worksheets</h2>
+  <div class="card" onclick="loadHTML('gd1_math.html', this)">Grade 1</div>
+  <div class="card" onclick="loadHTML('gd2_math.html', this)">Grade 2</div>
+  <div class="card" onclick="loadHTML('gd3_math.html', this)">Grade 3</div>
+  <div class="card" onclick="loadHTML('gd4_math.html', this)">Grade 4</div>
+  <div class="card" onclick="loadHTML('gd5_math.html', this)">Grade 5</div>
+  <div class="card" onclick="loadHTML('gd6_math.html', this)">Grade 6</div>
+</section>
+
+<footer>
+<p>&copy; 2026 FunIQ.ca | Contact: <a href="mailto:info@funiq.ca">info@funiq.ca</a> | Phone: 123-456-7890</p>
+<p>Follow us: <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">YouTube</a></p>
+</footer>
+
+<script>
+let activeLink = null;
+function toggleMenu(){ document.getElementById('nav-menu').classList.toggle('active'); }
+
+// Load HTML into Section 2 and highlight menu/card
+function loadHTML(file, linkElement=null) {
+  document.getElementById('content-object').data = file;
+  window.scrollTo({top:80, behavior:'smooth'});
+  
+  if(activeLink) activeLink.style.background = '';
+  if(linkElement){
+    linkElement.style.background = '#ffe6f3';
+    activeLink = linkElement;
+  }
+}
+</script>
+</body>
+</html>
