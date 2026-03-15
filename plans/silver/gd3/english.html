@@ -59,13 +59,16 @@ cursor:pointer;
 <script>
 
 const quiz=[
-{q:"Which word is a noun?", o:["Dog","Run","Quickly","Jump"], a:"Dog"},
-{q:"Opposite of 'Happy'?", o:["Sad","Big","Tall","Hot"], a:"Sad"},
-{q:"Plural of 'Book'?", o:["Books","Bookes","Bookies","Book"], a:"Books"},
-{q:"Which word is a verb?", o:["Run","Table","Chair","Book"], a:"Run"},
-{q:"Which word is a color?", o:["Green","Eat","Run","Jump"], a:"Green"},
-{q:"Which word is an animal?", o:["Tiger","Lamp","Pen","Desk"], a:"Tiger"},
-{q:"Which is a vowel?", o:["A","T","S","R"], a:"A"}
+  {"question":"Which is a noun?","o":["Run","Apple","Blue","Jump"],"a":"Apple"},
+  {"question":"Which is a verb?","o":["Sing","Cat","Book","Blue"],"a":"Sing"},
+  {"question":"Which is an adjective?","o":["Happy","Dog","Eat","Chair"],"a":"Happy"},
+  {"question":"Which is a pronoun?","o":["He","Tree","Pen","Car"],"a":"He"},
+  {"question":"Which is an opposite of 'big'?","o":["Small","Large","Tall","Huge"],"a":"Small"},
+  {"question":"Which is a color?","o":["Red","Run","Dog","Eat"],"a":"Red"},
+  {"question":"Which word is a preposition?","o":["Under","Chair","Jump","Apple"],"a":"Under"},
+  {"question":"Which word asks a question?","o":["Why","Book","Run","Sun"],"a":"Why"},
+  {"question":"Which is a plural word?","o":["Cats","Cat","Dog","Book"],"a":"Cats"},
+  {"question":"Which word is a conjunction?","o":["And","Blue","Sing","Tree"],"a":"And"}
 ];
 
 let current=0;
@@ -80,17 +83,27 @@ const starsEl=document.getElementById("stars");
 
 function loadQuestion(){
 
+feedback.innerHTML="";
+
 let data=quiz[current];
-q.innerText=data.q;
+
+q.innerText=data.question;
+
 opt.innerHTML="";
 
 data.o.forEach(option=>{
 let div=document.createElement("div");
 div.className="option";
 div.innerText=option;
-div.onclick=()=>check(option);
+
+div.onclick=function(){
+check(option);
+};
+
 opt.appendChild(div);
 });
+
+starsEl.innerHTML="⭐".repeat(stars);
 
 }
 
@@ -99,10 +112,9 @@ function check(answer){
 if(answer===quiz[current].a){
 score++;
 stars++;
-feedback.innerHTML="Correct!";
-}
-else{
-feedback.innerHTML="Wrong! Correct: "+quiz[current].a;
+feedback.innerHTML="✅ Correct!";
+}else{
+feedback.innerHTML="❌ Wrong! Correct: "+quiz[current].a;
 }
 
 starsEl.innerHTML="⭐".repeat(stars);
@@ -111,15 +123,14 @@ current++;
 
 if(current<quiz.length){
 setTimeout(loadQuestion,1000);
-}
-else{
+}else{
 finish();
 }
 
 }
 
 function finish(){
-q.innerHTML="Quiz Completed!";
+q.innerHTML="🏆 Quiz Completed!";
 opt.innerHTML="";
 scoreEl.innerHTML="Score: "+score+" / "+quiz.length;
 }

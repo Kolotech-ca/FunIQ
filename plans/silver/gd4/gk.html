@@ -59,13 +59,16 @@ cursor:pointer;
 <script>
 
 const quiz=[
-{q:"Largest ocean?", o:["Pacific","Atlantic","Indian","Arctic"], a:"Pacific"},
-{q:"National bird of India?", o:["Peacock","Sparrow","Eagle","Crow"], a:"Peacock"},
-{q:"How many continents?", o:["7","6","5","8"], a:"7"},
-{q:"Fastest land animal?", o:["Cheetah","Lion","Tiger","Horse"], a:"Cheetah"},
-{q:"Which is a desert?", o:["Sahara","Amazon","Ganga","Himalaya"], a:"Sahara"},
-{q:"Largest animal?", o:["Blue whale","Elephant","Shark","Giraffe"], a:"Blue whale"},
-{q:"Which is a mountain range?", o:["Himalayas","Amazon","Nile","Thar"], a:"Himalayas"}
+  {"question":"Which planet is known as the Red Planet?","o":["Mars","Earth","Venus","Jupiter"],"a":"Mars"},
+  {"question":"Which is the largest mammal?","o":["Elephant","Blue Whale","Lion","Giraffe"],"a":"Blue Whale"},
+  {"question":"Which bird cannot fly?","o":["Penguin","Crow","Sparrow","Parrot"],"a":"Penguin"},
+  {"question":"Which natural resource do we get from trees?","o":["Wood","Water","Metal","Rock"],"a":"Wood"},
+  {"question":"Which season comes after summer?","o":["Autumn","Winter","Spring","Summer"],"a":"Autumn"},
+  {"question":"Which is a source of fresh water?","o":["River","Car","House","Tree"],"a":"River"},
+  {"question":"Which planet is closest to the Sun?","o":["Mercury","Earth","Mars","Venus"],"a":"Mercury"},
+  {"question":"Which is a flying mammal?","o":["Bat","Dog","Cat","Cow"],"a":"Bat"},
+  {"question":"Which animal lays eggs?","o":["Hen","Cow","Dog","Sheep"],"a":"Hen"},
+  {"question":"Which is the tallest land animal?","o":["Giraffe","Elephant","Lion","Horse"],"a":"Giraffe"}
 ];
 
 let current=0;
@@ -80,17 +83,27 @@ const starsEl=document.getElementById("stars");
 
 function loadQuestion(){
 
+feedback.innerHTML="";
+
 let data=quiz[current];
-q.innerText=data.q;
+
+q.innerText=data.question;
+
 opt.innerHTML="";
 
 data.o.forEach(option=>{
 let div=document.createElement("div");
 div.className="option";
 div.innerText=option;
-div.onclick=()=>check(option);
+
+div.onclick=function(){
+check(option);
+};
+
 opt.appendChild(div);
 });
+
+starsEl.innerHTML="⭐".repeat(stars);
 
 }
 
@@ -99,10 +112,9 @@ function check(answer){
 if(answer===quiz[current].a){
 score++;
 stars++;
-feedback.innerHTML="Correct!";
-}
-else{
-feedback.innerHTML="Wrong! Correct: "+quiz[current].a;
+feedback.innerHTML="✅ Correct!";
+}else{
+feedback.innerHTML="❌ Wrong! Correct: "+quiz[current].a;
 }
 
 starsEl.innerHTML="⭐".repeat(stars);
@@ -111,15 +123,14 @@ current++;
 
 if(current<quiz.length){
 setTimeout(loadQuestion,1000);
-}
-else{
+}else{
 finish();
 }
 
 }
 
 function finish(){
-q.innerHTML="Quiz Completed!";
+q.innerHTML="🏆 Quiz Completed!";
 opt.innerHTML="";
 scoreEl.innerHTML="Score: "+score+" / "+quiz.length;
 }

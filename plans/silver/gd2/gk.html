@@ -59,13 +59,16 @@ cursor:pointer;
 <script>
 
 const quiz=[
-{q:"How many months in a year?",o:["12","10","11","13"],a:"12"},
-{q:"Which is a bird?",o:["Parrot","Dog","Tiger","Cow"],a:"Parrot"},
-{q:"Which is a fruit?",o:["Mango","Potato","Carrot","Onion"],a:"Mango"},
-{q:"Which vehicle flies?",o:["Airplane","Car","Bus","Train"],a:"Airplane"},
-{q:"Which is a festival?",o:["Diwali","Monday","January","School"],a:"Diwali"},
-{q:"Which planet do we live on?",o:["Earth","Mars","Venus","Jupiter"],a:"Earth"},
-{q:"Which animal is king of jungle?",o:["Lion","Tiger","Dog","Horse"],a:"Lion"}
+  {"question":"Which is the tallest animal?","o":["Dog","Giraffe","Elephant","Cat"],"a":"Giraffe"},
+  {"question":"Which planet is known as the Red Planet?","o":["Moon","Mars","Sun","Earth"],"a":"Mars"},
+  {"question":"Which is a vegetable?","o":["Apple","Carrot","Mango","Banana"],"a":"Carrot"},
+  {"question":"Which animal gives us milk?","o":["Dog","Cow","Chicken","Cat"],"a":"Cow"},
+  {"question":"Which is used to write?","o":["Table","Pen","Chair","Book"],"a":"Pen"},
+  {"question":"Which bird cannot fly?","o":["Ostrich","Crow","Parrot","Sparrow"],"a":"Ostrich"},
+  {"question":"Which sense helps us taste?","o":["Eyes","Tongue","Hands","Nose"],"a":"Tongue"},
+  {"question":"Which is a season of the year?","o":["Tree","Winter","Car","Chair"],"a":"Winter"},
+  {"question":"Which animal lives in water?","o":["Cow","Fish","Cat","Dog"],"a":"Fish"},
+  {"question":"Which gives us light at night?","o":["Moon","Sun","Star","Lamp"],"a":"Moon"}
 ];
 
 let current=0;
@@ -80,17 +83,27 @@ const starsEl=document.getElementById("stars");
 
 function loadQuestion(){
 
+feedback.innerHTML="";
+
 let data=quiz[current];
-q.innerText=data.q;
+
+q.innerText=data.question;
+
 opt.innerHTML="";
 
 data.o.forEach(option=>{
 let div=document.createElement("div");
 div.className="option";
 div.innerText=option;
-div.onclick=()=>check(option);
+
+div.onclick=function(){
+check(option);
+};
+
 opt.appendChild(div);
 });
+
+starsEl.innerHTML="⭐".repeat(stars);
 
 }
 
@@ -99,10 +112,9 @@ function check(answer){
 if(answer===quiz[current].a){
 score++;
 stars++;
-feedback.innerHTML="Correct!";
-}
-else{
-feedback.innerHTML="Wrong! Correct: "+quiz[current].a;
+feedback.innerHTML="✅ Correct!";
+}else{
+feedback.innerHTML="❌ Wrong! Correct: "+quiz[current].a;
 }
 
 starsEl.innerHTML="⭐".repeat(stars);
@@ -111,15 +123,14 @@ current++;
 
 if(current<quiz.length){
 setTimeout(loadQuestion,1000);
-}
-else{
+}else{
 finish();
 }
 
 }
 
 function finish(){
-q.innerHTML="Quiz Completed!";
+q.innerHTML="🏆 Quiz Completed!";
 opt.innerHTML="";
 scoreEl.innerHTML="Score: "+score+" / "+quiz.length;
 }

@@ -59,13 +59,16 @@ cursor:pointer;
 <script>
 
 const quiz=[
-{q:"23 + 15 = ?", o:["38","37","39","36"], a:"38"},
-{q:"45 - 19 = ?", o:["26","25","24","27"], a:"26"},
-{q:"6 × 4 = ?", o:["24","22","26","20"], a:"24"},
-{q:"36 ÷ 6 = ?", o:["5","6","7","4"], a:"6"},
-{q:"Which number is even?", o:["17","21","18","19"], a:"18"},
-{q:"10 + 30 + 5 = ?", o:["45","40","35","50"], a:"45"},
-{q:"50 - 25 = ?", o:["30","25","20","35"], a:"25"}
+  {"question":"What is 12 + 8?","o":["20","19","21","18"],"a":"20"},
+  {"question":"What is 15 - 7?","o":["8","7","9","6"],"a":"8"},
+  {"question":"What is 6 × 4?","o":["24","22","20","26"],"a":"24"},
+  {"question":"What is 36 ÷ 6?","o":["6","5","7","8"],"a":"6"},
+  {"question":"Which number comes after 49?","o":["50","48","51","49"],"a":"50"},
+  {"question":"Which number comes before 73?","o":["72","71","74","73"],"a":"72"},
+  {"question":"What is 9 + 5?","o":["14","15","13","12"],"a":"14"},
+  {"question":"What is 18 - 9?","o":["9","8","10","7"],"a":"9"},
+  {"question":"Which is an even number?","o":["12","11","9","7"],"a":"12"},
+  {"question":"Which is an odd number?","o":["17","16","18","14"],"a":"17"}
 ];
 
 let current=0;
@@ -80,17 +83,27 @@ const starsEl=document.getElementById("stars");
 
 function loadQuestion(){
 
+feedback.innerHTML="";
+
 let data=quiz[current];
-q.innerText=data.q;
+
+q.innerText=data.question;
+
 opt.innerHTML="";
 
 data.o.forEach(option=>{
 let div=document.createElement("div");
 div.className="option";
 div.innerText=option;
-div.onclick=()=>check(option);
+
+div.onclick=function(){
+check(option);
+};
+
 opt.appendChild(div);
 });
+
+starsEl.innerHTML="⭐".repeat(stars);
 
 }
 
@@ -99,10 +112,9 @@ function check(answer){
 if(answer===quiz[current].a){
 score++;
 stars++;
-feedback.innerHTML="Correct!";
-}
-else{
-feedback.innerHTML="Wrong! Correct: "+quiz[current].a;
+feedback.innerHTML="✅ Correct!";
+}else{
+feedback.innerHTML="❌ Wrong! Correct: "+quiz[current].a;
 }
 
 starsEl.innerHTML="⭐".repeat(stars);
@@ -111,15 +123,14 @@ current++;
 
 if(current<quiz.length){
 setTimeout(loadQuestion,1000);
-}
-else{
+}else{
 finish();
 }
 
 }
 
 function finish(){
-q.innerHTML="Quiz Completed!";
+q.innerHTML="🏆 Quiz Completed!";
 opt.innerHTML="";
 scoreEl.innerHTML="Score: "+score+" / "+quiz.length;
 }

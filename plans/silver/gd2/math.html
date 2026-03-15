@@ -59,13 +59,16 @@ cursor:pointer;
 <script>
 
 const quiz = [
-{q:"12 + 5 = ?",o:["17","16","18","15"],a:"17"},
-{q:"20 - 8 = ?",o:["10","12","14","11"],a:"12"},
-{q:"5 + 9 = ?",o:["13","14","15","12"],a:"14"},
-{q:"10 + 7 = ?",o:["15","17","18","16"],a:"17"},
-{q:"15 - 5 = ?",o:["9","10","11","12"],a:"10"},
-{q:"8 + 6 = ?",o:["13","14","15","12"],a:"14"},
-{q:"11 + 3 = ?",o:["13","14","12","15"],a:"14"}
+  {"question":"What is 5 + 3?","o":["8","7","6","9"],"a":"8"},
+  {"question":"What is 10 - 4?","o":["6","5","4","7"],"a":"6"},
+  {"question":"What is 2 × 3?","o":["6","5","3","4"],"a":"6"},
+  {"question":"What is 12 ÷ 4?","o":["3","4","2","6"],"a":"3"},
+  {"question":"Which number comes after 19?","o":["20","18","21","19"],"a":"20"},
+  {"question":"Which number comes before 15?","o":["14","15","13","16"],"a":"14"},
+  {"question":"What is 7 + 2?","o":["9","8","10","7"],"a":"9"},
+  {"question":"What is 8 - 5?","o":["3","2","4","5"],"a":"3"},
+  {"question":"Which is an even number?","o":["4","5","7","9"],"a":"4"},
+  {"question":"Which is an odd number?","o":["7","6","8","4"],"a":"7"}
 ];
 
 let current=0;
@@ -80,17 +83,27 @@ const starsEl=document.getElementById("stars");
 
 function loadQuestion(){
 
+feedback.innerHTML="";
+
 let data=quiz[current];
-q.innerText=data.q;
+
+q.innerText=data.question;
+
 opt.innerHTML="";
 
 data.o.forEach(option=>{
 let div=document.createElement("div");
 div.className="option";
 div.innerText=option;
-div.onclick=()=>check(option);
+
+div.onclick=function(){
+check(option);
+};
+
 opt.appendChild(div);
 });
+
+starsEl.innerHTML="⭐".repeat(stars);
 
 }
 
@@ -99,10 +112,9 @@ function check(answer){
 if(answer===quiz[current].a){
 score++;
 stars++;
-feedback.innerHTML="Correct!";
-}
-else{
-feedback.innerHTML="Wrong! Correct: "+quiz[current].a;
+feedback.innerHTML="✅ Correct!";
+}else{
+feedback.innerHTML="❌ Wrong! Correct: "+quiz[current].a;
 }
 
 starsEl.innerHTML="⭐".repeat(stars);
@@ -111,15 +123,14 @@ current++;
 
 if(current<quiz.length){
 setTimeout(loadQuestion,1000);
-}
-else{
+}else{
 finish();
 }
 
 }
 
 function finish(){
-q.innerHTML="Quiz Completed!";
+q.innerHTML="🏆 Quiz Completed!";
 opt.innerHTML="";
 scoreEl.innerHTML="Score: "+score+" / "+quiz.length;
 }

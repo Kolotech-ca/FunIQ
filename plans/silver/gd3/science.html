@@ -116,13 +116,16 @@ animation:fall linear infinite;
 <script>
 
 const quiz=[
-{q:"Plants make food in their?", o:["Leaves","Roots","Stem","Flower"], a:"Leaves"},
-{q:"Which animal lives in water?", o:["Fish","Dog","Cat","Cow"], a:"Fish"},
-{q:"Which gas do plants need?", o:["Carbon dioxide","Oxygen","Nitrogen","Helium"], a:"Carbon dioxide"},
-{q:"Which sense organ helps us hear?", o:["Ear","Eye","Nose","Hand"], a:"Ear"},
-{q:"The sun gives us?", o:["Heat and light","Rain","Wind","Snow"], a:"Heat and light"},
-{q:"Which is a solid?", o:["Ice","Air","Steam","Smoke"], a:"Ice"},
-{q:"Which animal lays eggs?", o:["Hen","Cow","Dog","Goat"], a:"Hen"}
+  {"question":"Which organ helps us breathe?","o":["Lungs","Heart","Brain","Stomach"],"a":"Lungs"},
+  {"question":"Which planet is closest to the Sun?","o":["Mercury","Earth","Mars","Venus"],"a":"Mercury"},
+  {"question":"Which is a source of light?","o":["Sun","Moon","Star","Lamp"],"a":"Sun"},
+  {"question":"Which animal can fly?","o":["Dog","Bird","Cat","Cow"],"a":"Bird"},
+  {"question":"Which is a solid?","o":["Rock","Water","Air","Juice"],"a":"Rock"},
+  {"question":"Which is a natural resource?","o":["Tree","Car","Chair","Phone"],"a":"Tree"},
+  {"question":"Which sense helps us smell?","o":["Nose","Eyes","Hands","Ears"],"a":"Nose"},
+  {"question":"Which is a liquid?","o":["Water","Ice","Rock","Sand"],"a":"Water"},
+  {"question":"Which is used to measure temperature?","o":["Thermometer","Ruler","Clock","Pen"],"a":"Thermometer"},
+  {"question":"Which part helps us see?","o":["Eyes","Hands","Feet","Nose"],"a":"Eyes"}
 ];
 
 let current=0;
@@ -132,14 +135,8 @@ let stars=0;
 const q=document.getElementById("question");
 const opt=document.getElementById("options");
 const feedback=document.getElementById("feedback");
-const progress=document.getElementById("progress");
 const scoreEl=document.getElementById("score");
 const starsEl=document.getElementById("stars");
-const restart=document.getElementById("restart");
-
-const correctSound=document.getElementById("correct");
-const wrongSound=document.getElementById("wrong");
-const winSound=document.getElementById("win");
 
 function loadQuestion(){
 
@@ -147,7 +144,7 @@ feedback.innerHTML="";
 
 let data=quiz[current];
 
-q.innerText=data.q;
+q.innerText=data.question;
 
 opt.innerHTML="";
 
@@ -155,80 +152,44 @@ data.o.forEach(option=>{
 let div=document.createElement("div");
 div.className="option";
 div.innerText=option;
-div.onclick=()=>checkAnswer(div,option);
+
+div.onclick=function(){
+check(option);
+};
+
 opt.appendChild(div);
 });
-
-progress.style.width=(current/quiz.length*100)+"%";
 
 starsEl.innerHTML="⭐".repeat(stars);
 
 }
 
-function checkAnswer(div,answer){
+function check(answer){
 
 if(answer===quiz[current].a){
 score++;
 stars++;
 feedback.innerHTML="✅ Correct!";
-div.style.background="#98fb98";
-correctSound.play();
-}
-else{
-feedback.innerHTML="❌ Correct: "+quiz[current].a;
-div.classList.add("wrong");
-wrongSound.play();
+}else{
+feedback.innerHTML="❌ Wrong! Correct: "+quiz[current].a;
 }
 
-setTimeout(()=>{
+starsEl.innerHTML="⭐".repeat(stars);
 
 current++;
 
 if(current<quiz.length){
-loadQuestion();
+setTimeout(loadQuestion,1000);
+}else{
+finish();
 }
-else{
-finishQuiz();
-}
-
-},1000);
 
 }
 
-function finishQuiz(){
-
+function finish(){
 q.innerHTML="🏆 Quiz Completed!";
 opt.innerHTML="";
 scoreEl.innerHTML="Score: "+score+" / "+quiz.length;
-restart.style.display="inline-block";
-progress.style.width="100%";
-winSound.play();
-launchConfetti();
-
-}
-
-restart.onclick=()=>{
-current=0;
-score=0;
-stars=0;
-scoreEl.innerHTML="";
-restart.style.display="none";
-loadQuestion();
-};
-
-function launchConfetti(){
-
-for(let i=0;i<50;i++){
-let conf=document.createElement("div");
-conf.className="confetti";
-conf.innerText="🎉";
-conf.style.left=Math.random()*100+"vw";
-conf.style.fontSize=(Math.random()*24+12)+"px";
-conf.style.animationDuration=(Math.random()*3+2)+"s";
-document.body.appendChild(conf);
-setTimeout(()=>conf.remove(),4000);
-}
-
 }
 
 loadQuestion();

@@ -46,7 +46,7 @@ cursor:pointer;
 <h2>📘 Grade 2 English Game</h2>
 
 <h3 id="question"></h3>
-<div id="options"></div>
+<div id="o" ></div>
 
 <div id="feedback" class="feedback"></div>
 <div id="stars" class="stars"></div>
@@ -59,13 +59,16 @@ cursor:pointer;
 <script>
 
 const quiz=[
-{q:"Plural of 'Cat'?",o:["Cats","Cates","Cat","Caty"],a:"Cats"},
-{q:"Opposite of Hot?",o:["Cold","Warm","Cool","Heat"],a:"Cold"},
-{q:"Which is a verb?",o:["Run","Dog","Table","Book"],a:"Run"},
-{q:"Which is a color?",o:["Blue","Jump","Run","Eat"],a:"Blue"},
-{q:"Opposite of Big?",o:["Small","Large","Huge","Tall"],a:"Small"},
-{q:"Which word is an animal?",o:["Tiger","Chair","Book","Lamp"],a:"Tiger"},
-{q:"Which letter is vowel?",o:["E","T","S","R"],a:"E"}
+{"question":"Which word is a noun?","o":["Run","Apple","Jump","Quickly"],"a":"Apple"},
+{"question":"Which word is a verb?","o":["Sing","Table","Cat","Blue"],"a":"Sing"},
+{"question":"Which word is an adjective?","o":["Happy","Dog","Eat","Chair"],"a":"Happy"},
+{"question":"Which word is a pronoun?","o":["He","Book","Car","Tree"],"a":"He"},
+{"question":"Which word is an opposite of 'hot'?","o":["Cold","Warm","Sun","Fire"],"a":"Cold"},
+{"question":"Which word is a color?","o":["Red","Run","Dog","Eat"],"a":"Red"},
+{"question":"Which word is a preposition?","o":["Under","Chair","Jump","Apple"],"a":"Under"},
+{"question":"Which word is a question word?","o":["Why","Table","Run","Sun"],"a":"Why"},
+{"question":"Which word is plural?","o":["Cats","Cat","Dog","Book"],"a":"Cats"},
+{"question":"Which word is a conjunction?","o":["And","Blue","Sing","Tree"],"a":"And"}
 ];
 
 let current=0;
@@ -73,24 +76,34 @@ let score=0;
 let stars=0;
 
 const q=document.getElementById("question");
-const opt=document.getElementById("options");
+const opt=document.getElementById("o");
 const feedback=document.getElementById("feedback");
 const scoreEl=document.getElementById("score");
 const starsEl=document.getElementById("stars");
 
 function loadQuestion(){
 
+feedback.innerHTML="";
+
 let data=quiz[current];
-q.innerText=data.q;
+
+q.innerText=data.question;
+
 opt.innerHTML="";
 
 data.o.forEach(option=>{
 let div=document.createElement("div");
 div.className="option";
 div.innerText=option;
-div.onclick=()=>check(option);
+
+div.onclick=function(){
+check(option);
+};
+
 opt.appendChild(div);
 });
+
+starsEl.innerHTML="⭐".repeat(stars);
 
 }
 
@@ -99,10 +112,9 @@ function check(answer){
 if(answer===quiz[current].a){
 score++;
 stars++;
-feedback.innerHTML="Correct!";
-}
-else{
-feedback.innerHTML="Wrong! Correct: "+quiz[current].a;
+feedback.innerHTML="✅ Correct!";
+}else{
+feedback.innerHTML="❌ Wrong! Correct: "+quiz[current].a;
 }
 
 starsEl.innerHTML="⭐".repeat(stars);
@@ -111,15 +123,14 @@ current++;
 
 if(current<quiz.length){
 setTimeout(loadQuestion,1000);
-}
-else{
+}else{
 finish();
 }
 
 }
 
 function finish(){
-q.innerHTML="Quiz Completed!";
+q.innerHTML="🏆 Quiz Completed!";
 opt.innerHTML="";
 scoreEl.innerHTML="Score: "+score+" / "+quiz.length;
 }

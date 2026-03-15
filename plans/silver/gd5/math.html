@@ -59,13 +59,16 @@ cursor:pointer;
 <script>
 
 const quiz=[
-{q:"125 + 375 = ?", o:["500","450","520","480"], a:"500"},
-{q:"600 - 245 = ?", o:["355","365","345","350"], a:"355"},
-{q:"12 × 9 = ?", o:["108","96","112","120"], a:"108"},
-{q:"144 ÷ 12 = ?", o:["12","11","13","10"], a:"12"},
-{q:"Which is a prime number?", o:["13","12","15","18"], a:"13"},
-{q:"50% of 200 = ?", o:["100","50","150","200"], a:"100"},
-{q:"25 × 4 = ?", o:["100","90","80","75"], a:"100"}
+  {"question":"What is 125 + 376?","o":["501","502","500","503"],"a":"501"},
+  {"question":"What is 640 - 285?","o":["355","356","354","357"],"a":"355"},
+  {"question":"What is 12 × 8?","o":["96","95","97","94"],"a":"96"},
+  {"question":"What is 144 ÷ 12?","o":["12","11","13","10"],"a":"12"},
+  {"question":"Which number comes after 999?","o":["1000","1001","998","999"],"a":"1000"},
+  {"question":"Which number comes before 2021?","o":["2020","2019","2022","2021"],"a":"2020"},
+  {"question":"What is 45 + 38?","o":["83","82","84","81"],"a":"83"},
+  {"question":"What is 72 - 19?","o":["53","52","54","51"],"a":"53"},
+  {"question":"Which is an even number?","o":["68","67","69","71"],"a":"68"},
+  {"question":"Which is an odd number?","o":["75","74","76","78"],"a":"75"}
 ];
 
 let current=0;
@@ -80,17 +83,27 @@ const starsEl=document.getElementById("stars");
 
 function loadQuestion(){
 
+feedback.innerHTML="";
+
 let data=quiz[current];
-q.innerText=data.q;
+
+q.innerText=data.question;
+
 opt.innerHTML="";
 
 data.o.forEach(option=>{
 let div=document.createElement("div");
 div.className="option";
 div.innerText=option;
-div.onclick=()=>check(option);
+
+div.onclick=function(){
+check(option);
+};
+
 opt.appendChild(div);
 });
+
+starsEl.innerHTML="⭐".repeat(stars);
 
 }
 
@@ -99,10 +112,9 @@ function check(answer){
 if(answer===quiz[current].a){
 score++;
 stars++;
-feedback.innerHTML="Correct!";
-}
-else{
-feedback.innerHTML="Wrong! Correct: "+quiz[current].a;
+feedback.innerHTML="✅ Correct!";
+}else{
+feedback.innerHTML="❌ Wrong! Correct: "+quiz[current].a;
 }
 
 starsEl.innerHTML="⭐".repeat(stars);
@@ -111,15 +123,14 @@ current++;
 
 if(current<quiz.length){
 setTimeout(loadQuestion,1000);
-}
-else{
+}else{
 finish();
 }
 
 }
 
 function finish(){
-q.innerHTML="Quiz Completed!";
+q.innerHTML="🏆 Quiz Completed!";
 opt.innerHTML="";
 scoreEl.innerHTML="Score: "+score+" / "+quiz.length;
 }

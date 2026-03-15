@@ -59,13 +59,16 @@ cursor:pointer;
 <script>
 
 const quiz=[
-{q:"48 + 27 = ?", o:["75","74","76","73"], a:"75"},
-{q:"90 - 45 = ?", o:["45","50","40","55"], a:"45"},
-{q:"7 × 8 = ?", o:["56","54","58","52"], a:"56"},
-{q:"64 ÷ 8 = ?", o:["8","7","6","9"], a:"8"},
-{q:"Which is a multiple of 5?", o:["25","22","23","24"], a:"25"},
-{q:"100 - 37 = ?", o:["63","62","64","61"], a:"63"},
-{q:"9 × 6 = ?", o:["54","56","52","50"], a:"54"}
+  {"question":"What is 25 + 17?","o":["42","43","41","44"],"a":"42"},
+  {"question":"What is 50 - 28?","o":["22","21","23","24"],"a":"22"},
+  {"question":"What is 6 × 7?","o":["42","40","48","36"],"a":"42"},
+  {"question":"What is 81 ÷ 9?","o":["9","8","10","7"],"a":"9"},
+  {"question":"Which number comes after 199?","o":["200","201","198","199"],"a":"200"},
+  {"question":"Which number comes before 305?","o":["304","303","306","305"],"a":"304"},
+  {"question":"What is 14 + 29?","o":["43","44","42","45"],"a":"43"},
+  {"question":"What is 36 - 18?","o":["18","17","19","20"],"a":"18"},
+  {"question":"Which is an even number?","o":["28","27","29","31"],"a":"28"},
+  {"question":"Which is an odd number?","o":["33","34","32","36"],"a":"33"}
 ];
 
 let current=0;
@@ -80,17 +83,27 @@ const starsEl=document.getElementById("stars");
 
 function loadQuestion(){
 
+feedback.innerHTML="";
+
 let data=quiz[current];
-q.innerText=data.q;
+
+q.innerText=data.question;
+
 opt.innerHTML="";
 
 data.o.forEach(option=>{
 let div=document.createElement("div");
 div.className="option";
 div.innerText=option;
-div.onclick=()=>check(option);
+
+div.onclick=function(){
+check(option);
+};
+
 opt.appendChild(div);
 });
+
+starsEl.innerHTML="⭐".repeat(stars);
 
 }
 
@@ -99,10 +112,9 @@ function check(answer){
 if(answer===quiz[current].a){
 score++;
 stars++;
-feedback.innerHTML="Correct!";
-}
-else{
-feedback.innerHTML="Wrong! Correct: "+quiz[current].a;
+feedback.innerHTML="✅ Correct!";
+}else{
+feedback.innerHTML="❌ Wrong! Correct: "+quiz[current].a;
 }
 
 starsEl.innerHTML="⭐".repeat(stars);
@@ -111,15 +123,14 @@ current++;
 
 if(current<quiz.length){
 setTimeout(loadQuestion,1000);
-}
-else{
+}else{
 finish();
 }
 
 }
 
 function finish(){
-q.innerHTML="Quiz Completed!";
+q.innerHTML="🏆 Quiz Completed!";
 opt.innerHTML="";
 scoreEl.innerHTML="Score: "+score+" / "+quiz.length;
 }
