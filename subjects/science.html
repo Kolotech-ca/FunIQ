@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>FunIQ Grade 1</title>
+<title>FunIQ Science</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -24,13 +24,10 @@ top:0;
 background:linear-gradient(90deg,#ff6ec7,#5bbcff);
 display:flex;
 align-items:center;
-justify-content:space-between;
 padding:12px 30px;
 box-shadow:0 4px 10px rgba(0,0,0,0.15);
 z-index:1000;
 }
-
-/* LOGO AREA */
 
 .logo-area{
 display:flex;
@@ -90,6 +87,17 @@ margin:auto;
 margin-top:30px;
 }
 
+/* GRADE GRID */
+
+.grade-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+max-width:900px;
+margin:auto;
+margin-top:30px;
+}
+
 /* CARD */
 
 .card{
@@ -107,7 +115,7 @@ box-shadow:0 12px 25px rgba(0,0,0,0.2);
 }
 
 .card i{
-font-size:40px;
+font-size:42px;
 margin-bottom:12px;
 }
 
@@ -118,12 +126,14 @@ margin-bottom:12px;
 .gold{background:#ffd700;color:#333;}
 .platinum{background:#5bbcff;}
 
-/* SUBJECT COLORS */
+/* GRADE COLORS */
 
-.math{background:#ff7aa2;}
-.science{background:#5bc0ff;}
-.english{background:#ffa94d;}
-.social{background:#6bd66b;}
+.grade1{background:#5bc0ff;}
+.grade2{background:#6bd66b;}
+.grade3{background:#ffa94d;}
+.grade4{background:#ff7aa2;}
+.grade5{background:#a569bd;}
+.grade6{background:#f4d03f;color:#333;}
 
 /* BUY */
 
@@ -143,7 +153,6 @@ footer a{
 color:white;
 text-decoration:none;
 margin:0 10px;
-font-weight:500;
 }
 
 footer a:hover{
@@ -152,14 +161,22 @@ text-decoration:underline;
 
 /* MOBILE */
 
-@media(max-width:600px){
+@media(max-width:800px){
+
+.grade-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:500px){
+
+.grade-grid{
+grid-template-columns:1fr;
+}
 
 .hero h1{
 font-size:30px;
-}
-
-.grade-title{
-font-size:18px;
 }
 
 }
@@ -172,24 +189,22 @@ font-size:18px;
 <!-- NAVBAR -->
 
 <div class="navbar">
-
 <div class="logo-area">
 <img src="logo.png" alt="FunIQ Logo">
-<div class="grade-title">Grade 1 Learning</div>
+<div class="grade-title">Science Learning</div>
 </div>
-
 </div>
 
 <!-- HERO -->
 
 <section class="hero">
 
-<h1>Fun Learning for Grade 1 🎉</h1>
+<h1>Fun Science Learning 🔬</h1>
 
 <p>
-Welcome to FunIQ! Kids can explore math, science, English, and social studies 
-through fun activities, colorful lessons, and exciting worksheets. 
-Our platform helps children learn independently while making learning fun and engaging.
+Explore the wonders of science! Learn about animals, plants, space,
+the Earth, and exciting discoveries through fun lessons and worksheets.
+Choose your grade and start exploring science.
 </p>
 
 </section>
@@ -205,61 +220,73 @@ Our platform helps children learn independently while making learning fun and en
 <a href="bronze.html" class="card bronze">
 <i class="fa-solid fa-medal"></i>
 <h3>Bronze</h3>
-<p>Start learning the basics</p>
+<p>Basic science concepts</p>
 </a>
 
 <a href="silver.html" class="card silver">
 <i class="fa-solid fa-award"></i>
 <h3>Silver</h3>
-<p>Build stronger skills</p>
+<p>Build science knowledge</p>
 </a>
 
 <a href="gold.html" class="card gold">
 <i class="fa-solid fa-trophy"></i>
 <h3>Gold</h3>
-<p>Advanced fun learning</p>
+<p>Advanced science learning</p>
 </a>
 
 <a href="platinum.html" class="card platinum">
 <i class="fa-solid fa-gem"></i>
 <h3>Platinum</h3>
-<p>Master Grade 1 topics</p>
+<p>Master science topics</p>
 </a>
 
 </div>
 
 </section>
 
-<!-- SUBJECTS -->
+<!-- GRADE SECTION -->
 
 <section class="section">
 
-<h2>Explore Subjects</h2>
+<h2>Select Your Grade</h2>
 
-<div class="grid">
+<div class="grade-grid">
 
-<a href="math.html" class="card math">
-<i class="fa-solid fa-calculator"></i>
-<h3>Math</h3>
-<p>Numbers, counting, addition</p>
+<a href="grade1.html" class="card grade1">
+<i class="fa-solid fa-leaf"></i>
+<h3>Grade 1</h3>
+<p>Plants & animals</p>
 </a>
 
-<a href="science.html" class="card science">
-<i class="fa-solid fa-flask"></i>
-<h3>Science</h3>
-<p>Animals, plants and nature</p>
+<a href="grade2.html" class="card grade2">
+<i class="fa-solid fa-paw"></i>
+<h3>Grade 2</h3>
+<p>Living things</p>
 </a>
 
-<a href="english.html" class="card english">
-<i class="fa-solid fa-book-open"></i>
-<h3>English</h3>
-<p>Reading and vocabulary</p>
+<a href="grade3.html" class="card grade3">
+<i class="fa-solid fa-cloud"></i>
+<h3>Grade 3</h3>
+<p>Weather & environment</p>
 </a>
 
-<a href="social.html" class="card social">
-<i class="fa-solid fa-globe"></i>
-<h3>Social</h3>
-<p>Community and the world</p>
+<a href="grade4.html" class="card grade4">
+<i class="fa-solid fa-mountain"></i>
+<h3>Grade 4</h3>
+<p>Earth & nature</p>
+</a>
+
+<a href="grade5.html" class="card grade5">
+<i class="fa-solid fa-atom"></i>
+<h3>Grade 5</h3>
+<p>Energy & matter</p>
+</a>
+
+<a href="grade6.html" class="card grade6">
+<i class="fa-solid fa-rocket"></i>
+<h3>Grade 6</h3>
+<p>Space & technology</p>
 </a>
 
 </div>
@@ -278,21 +305,18 @@ Our platform helps children learn independently while making learning fun and en
 <i class="fa-solid fa-file"></i>
 <h3>10 Worksheets</h3>
 <p>$10</p>
-<p>Perfect starter pack</p>
 </div>
 
 <div class="card buy">
 <i class="fa-solid fa-file-lines"></i>
 <h3>30 Worksheets</h3>
 <p>$20</p>
-<p>Best value learning bundle</p>
 </div>
 
 <div class="card buy">
 <i class="fa-solid fa-layer-group"></i>
 <h3>50 Worksheets</h3>
 <p>$30</p>
-<p>Complete practice pack</p>
 </div>
 
 </div>
@@ -318,3 +342,4 @@ Our platform helps children learn independently while making learning fun and en
 
 </body>
 </html>
+
