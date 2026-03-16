@@ -1,47 +1,199 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - funIQ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1E90FF;
+            --secondary-pink: #FF69B4;
+            --bg-light: #f9f9f9;
+            --text-dark: #333333;
+        }
 
-<title>Grade 1 Learning Activities | Funiq</title>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
 
-<link rel="stylesheet" href="css/style.css">
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
 
+        header {
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+            background: linear-gradient(270deg, var(--primary-blue), var(--secondary-pink));
+            background-size: 400% 400%;
+            animation: gradientMove 15s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        section {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 15px;
+            padding: 20px 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            margin-top: 15px;
+            display: none;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item .arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        footer {
+            background-color: var(--primary-blue);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        @media(max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="navbar">
+    <header>
+        <h1>FAQ</h1>
+        <p>Find answers to the most common questions about funIQ.ca</p>
+    </header>
 
-<div class="logo">Funiq</div>
+    <section>
+        <h2 class="section-title">Frequently Asked Questions</h2>
 
-</div>
+        <div class="faq-item">
+            <div class="faq-question">
+                What grades does funIQ.ca cover? 
+                <span class="arrow">&#9660;</span>
+            </div>
+            <div class="faq-answer">
+                funIQ.ca is designed for students in grades 1 through 6, covering Math, Science, English, and Social Studies.
+            </div>
+        </div>
 
-<section class="container">
+        <div class="faq-item">
+            <div class="faq-question">
+                How many activities and worksheets are available? 
+                <span class="arrow">&#9660;</span>
+            </div>
+            <div class="faq-answer">
+                We offer hundreds of pages and thousands of interactive activities, plus affordable worksheets for each subject.
+            </div>
+        </div>
 
-<h1>Grade 1 Learning</h1>
+        <div class="faq-item">
+            <div class="faq-question">
+                Can I purchase worksheets individually? 
+                <span class="arrow">&#9660;</span>
+            </div>
+            <div class="faq-answer">
+                Yes! Worksheets can be purchased individually at low rates, making it easy for parents or teachers to use them at home or in the classroom.
+            </div>
+        </div>
 
-<div class="grid">
+        <div class="faq-item">
+            <div class="faq-question">
+                Is funIQ.ca suitable for self-learning? 
+                <span class="arrow">&#9660;</span>
+            </div>
+            <div class="faq-answer">
+                Absolutely! funIQ.ca is designed for self-paced learning, allowing students to explore and practice independently.
+            </div>
+        </div>
 
-<div class="card">
-<a href="math.html">Grade 1 Math</a>
-</div>
+        <div class="faq-item">
+            <div class="faq-question">
+                How can I contact funIQ for support? 
+                <span class="arrow">&#9660;</span>
+            </div>
+            <div class="faq-answer">
+                You can contact us via email at <a href="mailto:info@funIQ.ca">info@funIQ.ca</a> or connect with us on social media (Facebook, Twitter, Instagram).
+            </div>
+        </div>
+    </section>
 
-<div class="card">
-<a href="science.html">Grade 1 Science</a>
-</div>
+    <footer>
+        &copy; 2026 funIQ.ca. All rights reserved.
+    </footer>
 
-<div class="card">
-<a href="english.html">Grade 1 English</a>
-</div>
-
-<div class="card">
-<a href="gk.html">Grade 1 GK</a>
-</div>
-
-</div>
-
-</section>
+    <script>
+        // Toggle FAQ answers
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    </script>
 
 </body>
 </html>

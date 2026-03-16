@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data & Probability</title>
+
+<style>
+body {
+    text-align: center;
+    font-family: Comic Sans MS, cursive;
+    background: linear-gradient(to right, #cfd9df, #e2ebf0);
+}
+
+h1 {
+    color: #ff4081;
+    font-size: 40px;
+}
+
+select, input {
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 10px;
+    margin: 5px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    background-color: #ff9800;
+    color: white;
+}
+
+button:hover {
+    background-color: #e68900;
+}
+
+#questionRow{
+    font-size:35px;
+    margin:20px;
+}
+
+#result {
+    font-size: 25px;
+    margin: 20px;
+    font-weight: bold;
+}
+
+#score, #highScore, #badges {
+    font-size: 22px;
+    margin: 5px;
+}
+
+.light {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 10px auto;
+    background-color: gray;
+}
+
+.green {
+    background-color: limegreen;
+    box-shadow: 0 0 20px limegreen;
+}
+
+.red {
+    background-color: red;
+    box-shadow: 0 0 20px red;
+}
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    top: -10px;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(720deg);
+    }
+}
+</style>
+</head>
+<body>
+
+<h1>🎉 Data & Probability 🎉</h1>
+
+<label>Difficulty: </label>
+<select id="level">
+<option value="easy">Easy</option>
+<option value="medium" selected>Medium</option>
+<option value="hard">Hard</option>
+</select>
+
+<div id="questionRow">
+<span id="question"></span>
+<input type="text" id="answer" placeholder="Your Answer">
+</div>
+
+<button onclick="checkAnswer()">Submit</button>
+<button onclick="generateQuestion()">New Question</button>
+
+<div class="light" id="light"></div>
+
+<div id="result"></div>
+
+<div id="score">Score: 0 ⭐</div>
+<div id="highScore">High Score: 0 🏆</div>
+<div id="badges">Badges: None 🏅</div>
+
+<script>
+// Sound Effects
+const correctSound = new Audio("https://www.soundjay.com/button/beep-07.wav");
+const wrongSound = new Audio("https://www.soundjay.com/button/beep-08b.wav");
+
+// Variables
+let currentQuestion, currentAnswer;
+let score = 0;
+let highScore = localStorage.getItem("dataHighScore") || 0;
+let badges = 0;
+
+document.getElementById("highScore").innerHTML = "High Score: " + highScore + " 🏆";
+
+// Data & Probability Questions
+function generateQuestion() {
+    const level = document.getElementById("level").value;
+    let q, a;
+
+    if(level === "easy"){
+        // Coin or die probability
+        if(Math.random()<0.5){
+            q = "Probability of getting heads in a coin toss?";
+            a = 0.5;
+        } else {
+            q = "Probability of rolling a 3 on a fair die?";
+            a = 1/6;
+        }
+    } else if(level === "medium"){
+        // Counting problem
+        let total = Math.floor(Math.random()*10)+5;
+        let favorable = Math.floor(Math.random()*total)+1;
+        q = `A bag has ${total} balls. Probability of picking 1 favorable ball? (decimal)`;
+        a = favorable/total;
+        a = Math.round(a*100)/100; // round to 2 decimals
+    } else {
+        // Combined probability
+        let die1 = Math.floor(Math.random()*6)+1;
+        let die2 = Math.floor(Math.random()*6)+1;
+        q = `Two dice thrown. Probability sum equals ${die1+die2}? (decimal)`;
+        let ways=0;
+        for(let i=1;i<=6;i++){
+            for(let j=1;j<=6;j++){
+                if(i+j === die1+die2) ways++;
+            }
+        }
+        a = Math.round((ways/36)*100)/100;
+    }
+
+    currentQuestion = q;
+    currentAnswer = a;
+
+    document.getElementById("question").innerHTML = currentQuestion;
+    document.getElementById("answer").value = "";
+    document.getElementById("result").innerHTML = "";
+    document.getElementById("light").className = "light";
+    document.getElementById("answer").focus();
+}
+
+// Check answer
+function checkAnswer() {
+    const userAnswer = parseFloat(document.getElementById("answer").value);
+    const light = document.getElementById("light");
+
+    if(Math.abs(userAnswer - currentAnswer) < 0.01){
+        score++;
+        correctSound.play();
+        document.getElementById("result").innerHTML = "🎉 Correct! Superstar!";
+        light.className = "light green";
+        launchConfetti();
+
+        if(score > highScore){
+            highScore = score;
+            localStorage.setItem("dataHighScore", highScore);
+            document.getElementById("highScore").innerHTML = "High Score: " + highScore + " 🏆";
+        }
+
+        if(score === 5){
+            badges++;
+            document.getElementById("badges").innerHTML = "Badges: 5 Questions 🏅";
+        } else if(score === 10){
+            badges++;
+            document.getElementById("badges").innerHTML = "Badges: 10 Questions 🏅";
+        }
+
+        document.getElementById("score").innerHTML = "Score: " + score + " ⭐";
+        setTimeout(generateQuestion,1000);
+
+    } else {
+        wrongSound.play();
+        document.getElementById("result").innerHTML = `❌ Wrong! Correct Answer is ${currentAnswer}`;
+        light.className = "light red";
+    }
+}
+
+// Confetti
+function launchConfetti() {
+    for(let i=0;i<60;i++){
+        let confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+        confetti.style.left = Math.random()*window.innerWidth + "px";
+        confetti.style.backgroundColor = `hsl(${Math.random()*360},100%,50%)`;
+        confetti.style.animationDuration = (Math.random()*2+2)+"s";
+        document.body.appendChild(confetti);
+        setTimeout(()=>confetti.remove(),4000);
+    }
+}
+
+// Enter key submission
+document.getElementById("answer").addEventListener("keypress",function(e){
+    if(e.key==="Enter") checkAnswer();
+});
+
+generateQuestion();
+</script>
+
+</body>
+</html>

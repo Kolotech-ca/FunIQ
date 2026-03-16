@@ -1,47 +1,266 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - funIQ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1E90FF;
+            --secondary-pink: #FF69B4;
+            --bg-light: #f9f9f9;
+            --text-dark: #333333;
+        }
 
-<title>Grade 1 Learning Activities | Funiq</title>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
 
-<link rel="stylesheet" href="css/style.css">
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
 
+        header {
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+            background: linear-gradient(270deg, var(--primary-blue), var(--secondary-pink));
+            background-size: 400% 400%;
+            animation: gradientMove 15s ease infinite;
+            position: relative;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /* Header CTA Button */
+        .header-cta {
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-pink));
+            background-size: 200% 200%;
+            transition: all 0.4s ease;
+        }
+
+        .header-cta:hover {
+            background-position: right center;
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .about-content, .why-choose-us {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-text {
+            flex: 1 1 400px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            flex: 1 1 400px;
+            text-align: center;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Why Choose Us Cards */
+        .why-choose-us .card {
+            flex: 1 1 250px;
+            background: white;
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .why-choose-us .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+        }
+
+        .why-choose-us .card img {
+            width: 60px;
+            margin-bottom: 20px;
+        }
+
+        .why-choose-us .card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        .why-choose-us .card p {
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        /* Section CTA Button */
+        .cta-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-pink));
+            background-size: 200% 200%;
+            transition: all 0.4s ease;
+        }
+
+        .cta-button:hover {
+            background-position: right center;
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        footer {
+            background-color: var(--primary-blue);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        @media(max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            .about-content, .why-choose-us {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="navbar">
+    <header>
+        <h1>About funIQ</h1>
+        <p>Learning Made Fun and Affordable for Grades 1–6</p>
+        <a href="https://funIQ.ca/start-learning" class="header-cta">Start Learning Now</a>
+    </header>
 
-<div class="logo">Funiq</div>
+    <section>
+        <h2 class="section-title">Who We Are</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>At <strong>funIQ.ca</strong>, we provide a self-learning platform designed for students in grades 1 through 6. Our site covers <strong>Math, Science, English, and Social Studies</strong> with hundreds of pages, thousands of activities, and worksheets available at affordable rates.</p>
+                <p>Our mission is to make learning engaging, interactive, and accessible to all students. Whether it’s practicing new skills, exploring topics in-depth, or purchasing worksheets for home or school use, funIQ empowers students to learn at their own pace while having fun.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1581092580493-3e1d7b918d79?auto=format&fit=crop&w=800&q=80" alt="Students learning">
+            </div>
+        </div>
+    </section>
 
-</div>
+    <section>
+        <h2 class="section-title">Our Mission</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>We aim to inspire curiosity, creativity, and confidence in young learners. By providing engaging content and interactive activities across multiple subjects, funIQ.ca helps students develop essential skills and a love for learning that lasts a lifetime.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1596496052655-9f4293b86b2b?auto=format&fit=crop&w=800&q=80" alt="Creative learning">
+            </div>
+        </div>
+    </section>
 
-<section class="container">
+    <section>
+        <h2 class="section-title">Why Choose Us</h2>
+        <div class="why-choose-us">
+            <div class="card">
+                <img src="https://img.icons8.com/color/96/000000/math.png" alt="Subjects Icon">
+                <h3>Multiple Subjects</h3>
+                <p>Covering Math, Science, English, and Social Studies for grades 1–6.</p>
+            </div>
+            <div class="card">
+                <img src="https://img.icons8.com/color/96/000000/activities.png" alt="Activities Icon">
+                <h3>Thousands of Activities</h3>
+                <p>Engaging exercises and interactive lessons to reinforce learning.</p>
+            </div>
+            <div class="card">
+                <img src="https://img.icons8.com/color/96/000000/document.png" alt="Worksheets Icon">
+                <h3>Affordable Worksheets</h3>
+                <p>Hundreds of worksheets available at low prices for home or school use.</p>
+            </div>
+            <div class="card">
+                <img src="https://img.icons8.com/color/96/000000/student-male.png" alt="Self-Learning Icon">
+                <h3>Self-Learning</h3>
+                <p>Students can learn at their own pace, anytime, anywhere.</p>
+            </div>
+        </div>
 
-<h1>Grade 1 Learning</h1>
+        <div class="cta-container">
+            <a href="https://funIQ.ca/worksheets" class="cta-button">Explore Worksheets</a>
+        </div>
+    </section>
 
-<div class="grid">
-
-<div class="card">
-<a href="math.html">Grade 1 Math</a>
-</div>
-
-<div class="card">
-<a href="science.html">Grade 1 Science</a>
-</div>
-
-<div class="card">
-<a href="english.html">Grade 1 English</a>
-</div>
-
-<div class="card">
-<a href="gk.html">Grade 1 GK</a>
-</div>
-
-</div>
-
-</section>
+    <footer>
+        &copy; 2026 funIQ.ca. All rights reserved.
+    </footer>
 
 </body>
 </html>

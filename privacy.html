@@ -1,47 +1,176 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - funIQ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1E90FF;
+            --secondary-pink: #FF69B4;
+            --bg-light: #f9f9f9;
+            --text-dark: #333333;
+        }
 
-<title>Grade 1 Learning Activities | Funiq</title>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
 
-<link rel="stylesheet" href="css/style.css">
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
 
+        header {
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+            background: linear-gradient(270deg, var(--primary-blue), var(--secondary-pink));
+            background-size: 400% 400%;
+            animation: gradientMove 15s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        section {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .privacy-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .privacy-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .privacy-card p {
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background-color: var(--primary-blue);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        a {
+            color: var(--secondary-pink);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media(max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="navbar">
+    <header>
+        <h1>Privacy Policy</h1>
+        <p>Your privacy is important to us at funIQ.ca</p>
+    </header>
 
-<div class="logo">Funiq</div>
+    <section>
+        <h2 class="section-title">Our Commitment</h2>
+        <div class="privacy-card">
+            <p>At <strong>funIQ.ca</strong>, we are committed to protecting the privacy of our students, parents, and visitors. This Privacy Policy explains what information we collect, how we use it, and the measures we take to safeguard your data.</p>
+        </div>
 
-</div>
+        <h2 class="section-title">Information We Collect</h2>
+        <div class="privacy-card">
+            <h3>Personal Information</h3>
+            <p>When you sign up or contact us, we may collect your name, email address, and other information you voluntarily provide.</p>
 
-<section class="container">
+            <h3>Usage Information</h3>
+            <p>We may collect information about your usage of the site, such as pages visited, activities completed, and worksheets accessed, to improve your learning experience.</p>
+        </div>
 
-<h1>Grade 1 Learning</h1>
+        <h2 class="section-title">How We Use Information</h2>
+        <div class="privacy-card">
+            <p>We use the information we collect to:</p>
+            <ul>
+                <li>Provide and improve our educational services</li>
+                <li>Send updates, newsletters, or responses to inquiries</li>
+                <li>Personalize the learning experience for students</li>
+                <li>Ensure the security and proper functioning of our website</li>
+            </ul>
+        </div>
 
-<div class="grid">
+        <h2 class="section-title">Sharing Your Information</h2>
+        <div class="privacy-card">
+            <p>funIQ.ca does not sell or share your personal information with third parties except as necessary to provide services or comply with legal obligations. We may share anonymized data for analytics or educational research purposes.</p>
+        </div>
 
-<div class="card">
-<a href="math.html">Grade 1 Math</a>
-</div>
+        <h2 class="section-title">Security</h2>
+        <div class="privacy-card">
+            <p>We take appropriate technical and organizational measures to protect your data from unauthorized access, loss, or misuse. While we strive to keep your data safe, no method of transmission over the Internet can guarantee 100% security.</p>
+        </div>
 
-<div class="card">
-<a href="science.html">Grade 1 Science</a>
-</div>
+        <h2 class="section-title">Your Rights</h2>
+        <div class="privacy-card">
+            <p>You have the right to access, update, or request deletion of your personal information. For inquiries or requests regarding your data, please <a href="mailto:info@funIQ.ca">contact us via email</a>.</p>
+        </div>
 
-<div class="card">
-<a href="english.html">Grade 1 English</a>
-</div>
+        <h2 class="section-title">Children’s Privacy</h2>
+        <div class="privacy-card">
+            <p>funIQ.ca is designed for students in grades 1–6. We do not knowingly collect personal information from children without parental consent. If you believe we have inadvertently collected information from a child, please <a href="mailto:info@funIQ.ca">contact us immediately</a>.</p>
+        </div>
 
-<div class="card">
-<a href="gk.html">Grade 1 GK</a>
-</div>
+        <h2 class="section-title">Changes to This Policy</h2>
+        <div class="privacy-card">
+            <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page, and the date of the latest update will be reflected here.</p>
+        </div>
 
-</div>
+        <h2 class="section-title">Contact Us</h2>
+        <div class="privacy-card">
+            <p>If you have any questions or concerns about this Privacy Policy, please contact us at <a href="mailto:info@funIQ.ca">info@funIQ.ca</a>.</p>
+        </div>
+    </section>
 
-</section>
+    <footer>
+        &copy; 2026 funIQ.ca. All rights reserved.
+    </footer>
 
 </body>
 </html>

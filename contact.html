@@ -1,47 +1,214 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - funIQ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1E90FF;
+            --secondary-pink: #FF69B4;
+            --bg-light: #f9f9f9;
+            --text-dark: #333333;
+        }
 
-<title>Grade 1 Learning Activities | Funiq</title>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
 
-<link rel="stylesheet" href="css/style.css">
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
 
+        header {
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+            background: linear-gradient(270deg, var(--primary-blue), var(--secondary-pink));
+            background-size: 400% 400%;
+            animation: gradientMove 15s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        section {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .contact-info, .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            text-align: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 1.2rem;
+        }
+
+        .contact-item img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .contact-item a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Contact Form */
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .contact-form input, 
+        .contact-form textarea {
+            padding: 15px;
+            font-size: 1rem;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            width: 100%;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form input:focus, 
+        .contact-form textarea:focus {
+            border-color: var(--primary-blue);
+            outline: none;
+        }
+
+        .contact-form button {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-pink));
+            background-size: 200% 200%;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .contact-form button:hover {
+            background-position: right center;
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        footer {
+            background-color: var(--primary-blue);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        @media(max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            .contact-item {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="navbar">
+    <header>
+        <h1>Contact Us</h1>
+        <p>We’d love to hear from you! Get in touch with us via email, social media, or by filling the form below.</p>
+    </header>
 
-<div class="logo">Funiq</div>
+    <section>
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="contact-info">
+            <!-- Email -->
+            <div class="contact-item">
+                <img src="https://img.icons8.com/color/96/000000/new-post.png" alt="Email Icon">
+                <a href="mailto:info@funIQ.ca">info@funIQ.ca</a>
+            </div>
+            <!-- Facebook -->
+            <div class="contact-item">
+                <img src="https://img.icons8.com/color/96/000000/facebook-new.png" alt="Facebook Icon">
+                <a href="https://www.facebook.com/funIQ" target="_blank">facebook.com/funIQ</a>
+            </div>
+            <!-- Twitter -->
+            <div class="contact-item">
+                <img src="https://img.icons8.com/color/96/000000/twitter-squared.png" alt="Twitter Icon">
+                <a href="https://twitter.com/funIQ" target="_blank">@funIQ</a>
+            </div>
+            <!-- Instagram -->
+            <div class="contact-item">
+                <img src="https://img.icons8.com/color/96/000000/instagram-new.png" alt="Instagram Icon">
+                <a href="https://www.instagram.com/funIQ" target="_blank">@funIQ</a>
+            </div>
+        </div>
+    </section>
 
-</div>
+    <!-- Contact Form -->
+    <section>
+        <h2 class="section-title">Send Us a Message</h2>
+        <div class="contact-form">
+            <form action="mailto:info@funIQ.ca" method="post" enctype="text/plain">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
 
-<section class="container">
-
-<h1>Grade 1 Learning</h1>
-
-<div class="grid">
-
-<div class="card">
-<a href="math.html">Grade 1 Math</a>
-</div>
-
-<div class="card">
-<a href="science.html">Grade 1 Science</a>
-</div>
-
-<div class="card">
-<a href="english.html">Grade 1 English</a>
-</div>
-
-<div class="card">
-<a href="gk.html">Grade 1 GK</a>
-</div>
-
-</div>
-
-</section>
+    <footer>
+        &copy; 2026 funIQ.ca. All rights reserved.
+    </footer>
 
 </body>
 </html>

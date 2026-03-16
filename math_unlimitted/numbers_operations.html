@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Numbers & Operations</title>
+
+<style>
+body {
+    text-align: center;
+    font-family: Comic Sans MS, cursive;
+    background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+}
+
+h1 {
+    color: #ff4081;
+    font-size: 40px;
+}
+
+select, input {
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 10px;
+    margin: 5px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    background-color: #ff9800;
+    color: white;
+}
+
+button:hover {
+    background-color: #e68900;
+}
+
+#questionRow{
+    font-size:35px;
+    margin:20px;
+}
+
+#result {
+    font-size: 25px;
+    margin: 20px;
+    font-weight: bold;
+}
+
+#score, #highScore, #badges {
+    font-size: 22px;
+    margin: 5px;
+}
+
+.light {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 10px auto;
+    background-color: gray;
+}
+
+.green {
+    background-color: limegreen;
+    box-shadow: 0 0 20px limegreen;
+}
+
+.red {
+    background-color: red;
+    box-shadow: 0 0 20px red;
+}
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    top: -10px;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(720deg);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎉 Numbers & Operations 🎉</h1>
+
+<label>Difficulty: </label>
+<select id="level">
+<option value="2">Easy</option>
+<option value="3" selected>Medium</option>
+<option value="4">Hard</option>
+</select>
+
+<label>Operation: </label>
+<select id="operation">
+<option value="mix" selected>Mixed</option>
+<option value="+">Addition (+)</option>
+<option value="-">Subtraction (−)</option>
+<option value="*">Multiplication (×)</option>
+<option value="/">Division (÷)</option>
+</select>
+
+<div id="questionRow">
+<span id="question"></span>
+<input type="number" id="answer" placeholder="Your Answer">
+</div>
+
+<button onclick="checkAnswer()">Submit</button>
+<button onclick="generateQuestion()">New Question</button>
+
+<div class="light" id="light"></div>
+
+<div id="result"></div>
+
+<div id="score">Score: 0 ⭐</div>
+<div id="highScore">High Score: 0 🏆</div>
+<div id="badges">Badges: None 🏅</div>
+
+<script>
+
+// Sound Effects
+const correctSound = new Audio("https://www.soundjay.com/button/beep-07.wav");
+const wrongSound = new Audio("https://www.soundjay.com/button/beep-08b.wav");
+
+// Variables
+let num1, num2, currentOperation;
+let score = 0;
+let highScore = localStorage.getItem("highScore") || 0;
+let badges = 0;
+
+document.getElementById("highScore").innerHTML = "High Score: " + highScore + " 🏆";
+
+// Generate random number
+function getRandomNumber(digits) {
+    let min = Math.pow(10, digits - 1);
+    let max = Math.pow(10, digits) - 1;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Generate question
+function generateQuestion() {
+
+    let digits = parseInt(document.getElementById("level").value);
+    let operationChoice = document.getElementById("operation").value;
+
+    num1 = getRandomNumber(digits);
+    num2 = getRandomNumber(digits);
+
+    if (operationChoice === "mix") {
+        let ops = ["+", "-", "*", "/"];
+        currentOperation = ops[Math.floor(Math.random() * ops.length)];
+    } else {
+        currentOperation = operationChoice;
+    }
+
+    if (currentOperation === "/") {
+        num2 = getRandomNumber(1);
+        num1 = num2 * getRandomNumber(1);
+    }
+
+    document.getElementById("question").innerHTML = `${num1} ${currentOperation} ${num2} =`;
+    document.getElementById("answer").value = "";
+    document.getElementById("result").innerHTML = "";
+    document.getElementById("light").className = "light";
+
+    document.getElementById("answer").focus(); // Focus input for quick typing
+}
+
+// Check answer
+function checkAnswer() {
+
+    let userAnswer = parseFloat(document.getElementById("answer").value);
+    let correctAnswer;
+
+    switch(currentOperation) {
+        case "+": correctAnswer = num1 + num2; break;
+        case "-": correctAnswer = num1 - num2; break;
+        case "*": correctAnswer = num1 * num2; break;
+        case "/": correctAnswer = num1 / num2; break;
+    }
+
+    let light = document.getElementById("light");
+
+    if (userAnswer === correctAnswer) {
+
+        score++;
+        correctSound.play();
+        document.getElementById("result").innerHTML = "🎉 Correct! Superstar!";
+        light.className = "light green";
+        launchConfetti();
+
+        if (score > highScore) {
+            highScore = score;
+            localStorage.setItem("highScore", highScore);
+            document.getElementById("highScore").innerHTML = "High Score: " + highScore + " 🏆";
+        }
+
+        if (score === 10) {
+            badges++;
+            document.getElementById("badges").innerHTML = "Badges: 10 Questions 🏅";
+        } 
+        else if (score === 20) {
+            badges++;
+            document.getElementById("badges").innerHTML = "Badges: 20 Questions 🏅";
+        } 
+        else if (score === 50) {
+            badges++;
+            document.getElementById("badges").innerHTML = "Badges: 50 Questions 🏅";
+        }
+
+        document.getElementById("score").innerHTML = "Score: " + score + " ⭐";
+
+        setTimeout(generateQuestion, 1000); // Auto next question after 1 second
+
+    } else {
+
+        wrongSound.play();
+        document.getElementById("result").innerHTML = "❌ Wrong! Correct Answer is " + correctAnswer;
+        light.className = "light red";
+        document.getElementById("score").innerHTML = "Score: " + score + " ⭐";
+    }
+}
+
+// Confetti
+function launchConfetti() {
+    for (let i = 0; i < 60; i++) {
+
+        let confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+
+        confetti.style.left = Math.random() * window.innerWidth + "px";
+        confetti.style.backgroundColor = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+        confetti.style.animationDuration = (Math.random() * 2 + 2) + "s";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => confetti.remove(), 4000);
+    }
+}
+
+// Allow Enter key to submit answer
+document.getElementById("answer").addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+        checkAnswer();
+    }
+});
+
+generateQuestion();
+
+</script>
+
+</body>
+</html>

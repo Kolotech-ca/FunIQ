@@ -1,47 +1,170 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions - funIQ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1E90FF;
+            --secondary-pink: #FF69B4;
+            --bg-light: #f9f9f9;
+            --text-dark: #333333;
+        }
 
-<title>Grade 1 Learning Activities | Funiq</title>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
 
-<link rel="stylesheet" href="css/style.css">
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
 
+        header {
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+            background: linear-gradient(270deg, var(--primary-blue), var(--secondary-pink));
+            background-size: 400% 400%;
+            animation: gradientMove 15s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        section {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .terms-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .terms-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .terms-card p {
+            margin-bottom: 15px;
+        }
+
+        .terms-card ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background-color: var(--primary-blue);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        a {
+            color: var(--secondary-pink);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media(max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="navbar">
+    <header>
+        <h1>Terms & Conditions</h1>
+        <p>Please read these terms carefully before using funIQ.ca</p>
+    </header>
 
-<div class="logo">Funiq</div>
+    <section>
+        <h2 class="section-title">Introduction</h2>
+        <div class="terms-card">
+            <p>Welcome to <strong>funIQ.ca</strong>. By accessing or using our website, you agree to comply with these Terms & Conditions. If you do not agree with any part of these terms, please do not use our website.</p>
+        </div>
 
-</div>
+        <h2 class="section-title">Use of the Website</h2>
+        <div class="terms-card">
+            <ul>
+                <li>funIQ.ca is designed for students in grades 1–6 for educational purposes.</li>
+                <li>Users must provide accurate information when signing up or purchasing worksheets.</li>
+                <li>You agree not to misuse the website or attempt unauthorized access to our systems.</li>
+            </ul>
+        </div>
 
-<section class="container">
+        <h2 class="section-title">Purchases & Payments</h2>
+        <div class="terms-card">
+            <p>All purchases of worksheets or materials on funIQ.ca are final. We accept payments through secure payment methods. Prices and availability are subject to change without notice.</p>
+        </div>
 
-<h1>Grade 1 Learning</h1>
+        <h2 class="section-title">Intellectual Property</h2>
+        <div class="terms-card">
+            <p>All content on funIQ.ca, including text, images, activities, and worksheets, is owned by funIQ.ca or its licensors. Users may not copy, reproduce, or distribute content without permission.</p>
+        </div>
 
-<div class="grid">
+        <h2 class="section-title">Privacy</h2>
+        <div class="terms-card">
+            <p>Your use of funIQ.ca is also governed by our <a href="privacy.html">Privacy Policy</a>, which explains how we collect and use personal information.</p>
+        </div>
 
-<div class="card">
-<a href="math.html">Grade 1 Math</a>
-</div>
+        <h2 class="section-title">Limitation of Liability</h2>
+        <div class="terms-card">
+            <p>funIQ.ca is provided “as is.” We do not guarantee uninterrupted access or error-free content. To the extent permitted by law, funIQ.ca is not liable for any direct or indirect damages arising from the use of the website.</p>
+        </div>
 
-<div class="card">
-<a href="science.html">Grade 1 Science</a>
-</div>
+        <h2 class="section-title">Changes to Terms</h2>
+        <div class="terms-card">
+            <p>We may update these Terms & Conditions from time to time. Any changes will be posted on this page. Continued use of the website after changes constitutes acceptance of the updated terms.</p>
+        </div>
 
-<div class="card">
-<a href="english.html">Grade 1 English</a>
-</div>
+        <h2 class="section-title">Contact Us</h2>
+        <div class="terms-card">
+            <p>If you have any questions about these Terms & Conditions, please <a href="mailto:info@funIQ.ca">contact us via email</a>.</p>
+        </div>
+    </section>
 
-<div class="card">
-<a href="gk.html">Grade 1 GK</a>
-</div>
-
-</div>
-
-</section>
+    <footer>
+        &copy; 2026 funIQ.ca. All rights reserved.
+    </footer>
 
 </body>
 </html>
