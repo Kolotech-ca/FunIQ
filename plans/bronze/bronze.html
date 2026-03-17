@@ -47,6 +47,27 @@ footer a:hover { color:#ff4fa3; }
 /* Responsive */
 @media screen and (max-width:900px){ .menu{display:none; flex-direction:column; background:linear-gradient(90deg,#ff4fa3,#2da9ff); width:100%; position:absolute; top:60px; left:0; padding:10px 0;} .menu.active{display:flex;} .hamburger{display:flex;} .dropdown-content{position:relative; background:#ffe6f3; box-shadow:none; border-radius:0;}.worksheets-section{grid-template-columns:repeat(1,1fr);} }
 @media screen and (min-width:600px) and (max-width:900px){ .worksheets-section{grid-template-columns:repeat(2,1fr);} }
+
+#content-section {
+  position: relative;
+}
+
+#default-message {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+  background: #fff;
+  z-index: 1;
+  padding: 20px;
+}
 </style>
 </head>
 <body>
@@ -98,13 +119,18 @@ footer a:hover { color:#ff4fa3; }
 
       <a href="#worksheets" class="buy-link">Buy Worksheets</a>
     </div>
-    <div class="bronze-square">Bronze</div>
+    <div class="bronze-square"><a href="#" class="logo" onclick="location.reload()">Bronze</a></div>
   </div>
 </nav>
 
 <!-- Section 2 -->
 <section id="content-section">
-  <object id="content-object" type="text/html" data=""></object>
+  <div id="default-message">
+    Please select a Grade from the Menu and choose the Subject.<br>
+    The quiz will load in this section.
+  </div>
+
+  <object id="content-object" type="text/html"></object>
 </section>
 
 <!-- Buy Worksheets -->
@@ -130,17 +156,17 @@ function toggleMenu(){ document.getElementById('nav-menu').classList.toggle('act
 // Load HTML into Section 2 and highlight menu/card
 function loadHTML(file, linkElement=null) {
   document.getElementById('content-object').data = file;
+  document.getElementById('default-message').style.display = 'none'; // 👈 ADD THIS
   window.scrollTo({top:80, behavior:'smooth'});
   
-  // Remove previous highlight
   if(activeLink) activeLink.style.background = '';
   
-  // Highlight current
   if(linkElement){
     linkElement.style.background = '#ffe6f3';
     activeLink = linkElement;
   }
 }
+
 </script>
 </body>
 </html>
