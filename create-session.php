@@ -2,7 +2,7 @@
 require 'vendor/autoload.php';
 require 'config.php';
 
-\Stripe\Stripe::setApiKey(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);
+\Stripe\Stripe::setApiKey(STRIPE_SECRET_KEY);
 
 $product_id = $_POST['product_id'] ?? null;
 $success_url = 'https://funiq.ca/success.html?session_id={CHECKOUT_SESSION_ID}';

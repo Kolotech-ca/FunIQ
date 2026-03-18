@@ -1,6 +1,6 @@
 <?php
 // Stripe Secret Key
-define('STRIPE_SECRET_KEY', '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');
+define('STRIPE_SECRET_KEY', 'STRIPE_SECRET_KEY');
 
 // Stripe Webhook Secret
 define('STRIPE_WEBHOOK_SECRET', 'whsec_XXXXXXXXXXXXXXXX');
