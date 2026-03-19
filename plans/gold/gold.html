@@ -194,14 +194,26 @@ function checkAnswer(choice) {
   setTimeout(showQuestion, 1000);
 }
 // Load HTML into Section 2 and highlight menu/card
+let activeLink = null; // add this line above the function
 function loadHTML(file, linkElement=null) {
-  document.getElementById('content-object').data = file;
-  document.getElementById('default-message').style.display = 'none'; // 👈 ADD THIS
-  window.scrollTo({top:80, behavior:'smooth'});
-  
-  if(activeLink) activeLink.style.background = '';
-  
-  if(linkElement){
+  const contentObj = document.getElementById('content-object');
+  const defaultMsg = document.getElementById('default-message');
+
+  if (contentObj) {
+    contentObj.data = file;
+  }
+
+  if (defaultMsg) {
+    defaultMsg.style.display = 'none';
+  }
+
+  window.scrollTo({ top: 80, behavior: 'smooth' });
+
+  if (activeLink) {
+    activeLink.style.background = '';
+  }
+
+  if (linkElement) {
     linkElement.style.background = '#ffe6f3';
     activeLink = linkElement;
   }
