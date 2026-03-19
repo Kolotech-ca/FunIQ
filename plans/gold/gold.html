@@ -193,6 +193,19 @@ function checkAnswer(choice) {
   index++;
   setTimeout(showQuestion, 1000);
 }
+// Load HTML into Section 2 and highlight menu/card
+function loadHTML(file, linkElement=null) {
+  document.getElementById('content-object').data = file;
+  document.getElementById('default-message').style.display = 'none'; // 👈 ADD THIS
+  window.scrollTo({top:80, behavior:'smooth'});
+  
+  if(activeLink) activeLink.style.background = '';
+  
+  if(linkElement){
+    linkElement.style.background = '#ffe6f3';
+    activeLink = linkElement;
+  }
+}
 </script>
 </body>
 </html>
