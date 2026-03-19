@@ -194,20 +194,23 @@ function checkAnswer(choice) {
   setTimeout(showQuestion, 1000);
 }
 // Load HTML into Section 2 and highlight menu/card
-let activeLink = null; // add this line above the function
+let activeLink = null;
+
 function loadHTML(file, linkElement=null) {
-  const contentObj = document.getElementById('content-object');
-  const defaultMsg = document.getElementById('default-message');
+  const quizSection = document.getElementById('quiz-section');
 
-  if (contentObj) {
-    contentObj.data = file;
+  if (quizSection) {
+    fetch(file)
+      .then(response => response.text())
+      .then(html => {
+        quizSection.innerHTML = html; // 👈 load inside quiz section
+        quizSection.scrollIntoView({ behavior: 'smooth' });
+      })
+      .catch(err => {
+        quizSection.innerHTML = "<p style='color:red;'>Failed to load worksheet.</p>";
+        console.error(err);
+      });
   }
-
-  if (defaultMsg) {
-    defaultMsg.style.display = 'none';
-  }
-
-  window.scrollTo({ top: 80, behavior: 'smooth' });
 
   if (activeLink) {
     activeLink.style.background = '';
