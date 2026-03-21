@@ -3,20 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>FunIQ Science</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
-body{
-margin:0;
-font-family:'Segoe UI',sans-serif;
-background:#f5fbff;
-}
-
-/* NAVBAR */
+body{margin:0;font-family:'Segoe UI',sans-serif;background:#f5fbff;}
 
 .navbar{
 position:sticky;
@@ -26,57 +19,17 @@ display:flex;
 align-items:center;
 padding:12px 30px;
 box-shadow:0 4px 10px rgba(0,0,0,0.15);
-z-index:1000;
 }
 
-.logo-area{
-display:flex;
-align-items:center;
-}
+.logo-area{display:flex;align-items:center;}
+.logo-area img{height:45px;margin-right:12px;}
+.grade-title{color:white;font-size:22px;font-weight:bold;}
 
-.logo-area img{
-height:45px;
-margin-right:12px;
-}
+.hero{text-align:center;padding:60px 20px;}
+.hero h1{font-size:40px;color:#333;}
 
-.grade-title{
-color:white;
-font-size:22px;
-font-weight:bold;
-}
-
-/* HERO */
-
-.hero{
-text-align:center;
-padding:60px 20px 40px 20px;
-}
-
-.hero h1{
-font-size:40px;
-color:#333;
-}
-
-.hero p{
-max-width:700px;
-margin:auto;
-font-size:18px;
-color:#555;
-}
-
-/* SECTION */
-
-.section{
-padding:50px 20px;
-text-align:center;
-}
-
-.section h2{
-font-size:32px;
-color:#333;
-}
-
-/* GRID */
+.section{padding:50px 20px;text-align:center;}
+.section h2{font-size:32px;}
 
 .grid{
 display:grid;
@@ -87,8 +40,6 @@ margin:auto;
 margin-top:30px;
 }
 
-/* GRADE GRID */
-
 .grade-grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -97,8 +48,6 @@ max-width:900px;
 margin:auto;
 margin-top:30px;
 }
-
-/* CARD */
 
 .card{
 padding:25px;
@@ -111,35 +60,23 @@ transition:0.3s;
 
 .card:hover{
 transform:translateY(-8px);
-box-shadow:0 12px 25px rgba(0,0,0,0.2);
 }
 
-.card i{
-font-size:42px;
-margin-bottom:12px;
-}
-
-/* LEVEL COLORS */
+.card i{font-size:42px;margin-bottom:12px;}
 
 .bronze{background:#cd7f32;}
 .silver{background:#c0c0c0;color:#333;}
 .gold{background:#ffd700;color:#333;}
 .platinum{background:#5bbcff;}
 
-/* GRADE COLORS */
-
-.grade1{background:#5bc0ff;}
-.grade2{background:#6bd66b;}
-.grade3{background:#ffa94d;}
-.grade4{background:#ff7aa2;}
+.grade1{background:#ff7aa2;}
+.grade2{background:#ffa94d;}
+.grade3{background:#6bd66b;}
+.grade4{background:#5bc0ff;}
 .grade5{background:#a569bd;}
 .grade6{background:#f4d03f;color:#333;}
 
-/* BUY */
-
 .buy{background:#8c7bff;}
-
-/* FOOTER */
 
 footer{
 background:linear-gradient(90deg,#ff6ec7,#5bbcff);
@@ -149,196 +86,112 @@ padding:30px;
 margin-top:40px;
 }
 
-footer a{
-color:white;
-text-decoration:none;
-margin:0 10px;
-}
-
-footer a:hover{
-text-decoration:underline;
-}
-
-/* MOBILE */
-
-@media(max-width:800px){
-
-.grade-grid{
-grid-template-columns:repeat(2,1fr);
-}
-
-}
-
-@media(max-width:500px){
-
-.grade-grid{
-grid-template-columns:1fr;
-}
-
-.hero h1{
-font-size:30px;
-}
-
-}
+footer a{color:white;margin:0 10px;text-decoration:none;}
 
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-
 <div class="navbar">
 <div class="logo-area">
-<img src="logo.png" alt="FunIQ Logo">
+<a href="../index.html" class="logo"><img src="../logo.png" style="height:50px;"></a>
 <div class="grade-title">Science Learning</div>
 </div>
 </div>
 
-<!-- HERO -->
-
 <section class="hero">
-
 <h1>Fun Science Learning 🔬</h1>
-
-<p>
-Explore the wonders of science! Learn about animals, plants, space,
-the Earth, and exciting discoveries through fun lessons and worksheets.
-Choose your grade and start exploring science.
-</p>
-
+<p>Explore the wonders of science! Learn about animals, plants, space, the Earth, and <br>exciting discoveries through fun lessons and worksheets. 
+    Choose your grade and start <br>exploring science.</p>
 </section>
 
-<!-- LEVELS -->
-
 <section class="section">
-
 <h2>Learning Levels</h2>
 
 <div class="grid">
 
-<a href="bronze.html" class="card bronze">
+<a href="../plans/bronze/bronze.html" class="card bronze">
 <i class="fa-solid fa-medal"></i>
 <h3>Bronze</h3>
-<p>Basic science concepts</p>
 </a>
 
-<a href="silver.html" class="card silver">
+<a href="../plans/silver/silver.html" class="card silver">
 <i class="fa-solid fa-award"></i>
 <h3>Silver</h3>
-<p>Build science knowledge</p>
 </a>
 
-<a href="gold.html" class="card gold">
+<a href="../plans/gold/gold.html" class="card gold">
 <i class="fa-solid fa-trophy"></i>
 <h3>Gold</h3>
-<p>Advanced science learning</p>
 </a>
 
-<a href="platinum.html" class="card platinum">
+<a href="../plans/platinum/platinum.html" class="card platinum">
 <i class="fa-solid fa-gem"></i>
 <h3>Platinum</h3>
-<p>Master science topics</p>
 </a>
 
 </div>
-
 </section>
 
-<!-- GRADE SECTION -->
-
 <section class="section">
-
 <h2>Select Your Grade</h2>
 
 <div class="grade-grid">
 
-<a href="grade1.html" class="card grade1">
-<i class="fa-solid fa-leaf"></i>
+<a href="../grades/grade1.html" class="card grade1">
+<i class="fa-solid fa-font"></i>
 <h3>Grade 1</h3>
-<p>Plants & animals</p>
 </a>
 
-<a href="grade2.html" class="card grade2">
-<i class="fa-solid fa-paw"></i>
+<a href="../grades/grade2.html" class="card grade2">
+<i class="fa-solid fa-book"></i>
 <h3>Grade 2</h3>
-<p>Living things</p>
 </a>
 
-<a href="grade3.html" class="card grade3">
-<i class="fa-solid fa-cloud"></i>
+<a href="../grades/grade3.html" class="card grade3">
+<i class="fa-solid fa-spell-check"></i>
 <h3>Grade 3</h3>
-<p>Weather & environment</p>
 </a>
 
-<a href="grade4.html" class="card grade4">
-<i class="fa-solid fa-mountain"></i>
+<a href="../grades/grade4.html" class="card grade4">
+<i class="fa-solid fa-pen"></i>
 <h3>Grade 4</h3>
-<p>Earth & nature</p>
 </a>
 
-<a href="grade5.html" class="card grade5">
-<i class="fa-solid fa-atom"></i>
+<a href="../grades/grade5.html" class="card grade5">
+<i class="fa-solid fa-book-open"></i>
 <h3>Grade 5</h3>
-<p>Energy & matter</p>
 </a>
 
-<a href="grade6.html" class="card grade6">
-<i class="fa-solid fa-rocket"></i>
+<a href="../grades/grade6.html" class="card grade6">
+<i class="fa-solid fa-quote-right"></i>
 <h3>Grade 6</h3>
-<p>Space & technology</p>
 </a>
 
 </div>
-
 </section>
 
-<!-- WORKSHEETS -->
-
 <section class="section">
-
 <h2>Buy Worksheets</h2>
 
 <div class="grid">
 
-<div class="card buy">
-<i class="fa-solid fa-file"></i>
-<h3>20 Questions Worksheets</h3>
-<p>$5</p>
-</div>
-
-<div class="card buy">
-<i class="fa-solid fa-file-lines"></i>
-<h3>50 Questions Worksheets</h3>
-<p>$10</p>
-</div>
-
-<div class="card buy">
-<i class="fa-solid fa-layer-group"></i>
-<h3>100 Questions Worksheets</h3>
-<p>$20</p>
-</div>
+<a href="../worksheets/20_worksheet.html" class="card buy">
+    <h3>20 Questions Worksheets</h3><p><s>$7.99</s><br><strong>$4.99</strong></p></a>
+<a href="../worksheets/50_worksheet.html" class="card buy">
+    <h3>50 Questions Worksheets</h3><p><s>$14.99</s><br><strong>$9.99</strong></p></a>
+<a href="../worksheets/100_worksheet.html" class="card buy">
+    <h3>100 Questions Worksheets</h3><p><s>$19.99</s><br><strong>$14.99</strong></p></a>
 
 </div>
-
 </section>
 
-
-<!-- FOOTER -->
-
 <footer>
-
-<p>📧 contact@funiq.ca</p>
-
-<p>
-<a href="index.html">Home</a> |
-<a href="#">Facebook</a> |
-<a href="#">Instagram</a> |
-<a href="#">YouTube</a>
-</p>
-
-<p>© 2026 FunIQ.ca</p>
-
+<p>&copy; 2026 <a href="index.html">FunIQ.ca</a> | Contact: <a href="mailto:info@funiq.ca">info@FunIQ.ca</a> </p>
+<p>Follow us: <a href="#">Facebook</a> | 
+  <a href="https://www.instagram.com/funiq.ca" target="_blank">Instagram</a> | 
+  <a href="https://www.youtube.com/@funiqca" target="_blank">YouTube</a></p>
 </footer>
 
 </body>

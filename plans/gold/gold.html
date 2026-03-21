@@ -46,7 +46,7 @@
 <!-- Navbar -->
 <nav class="navbar">
   <a href="../../index.html" class="logo"><img src="../../logo.png" style="height:50px;"></a>
-  
+ 
   <div class="menu-container">
     <div class="menu" id="nav-menu">
       <div class="dropdown"><button class="dropbtn">Grade 1</button>
@@ -198,22 +198,15 @@ function checkAnswer(choice) {
 }
 // Load HTML into Section 2 and highlight menu/card
 function loadHTML(file, linkElement=null) {
-  const quizSection = document.getElementById('quiz-section');
-
-  if (quizSection) {
-    fetch(file)
-      .then(response => response.text())
-      .then(html => {
-        quizSection.innerHTML = `<div style="padding-top: 20px;">${html}</div>`;
-        window.scrollTo({
-          top: quizSection.offsetTop - 70, // 👈 offset for navbar
-          behavior: 'smooth'
-        });
-      })
-      .catch(err => {
-        quizSection.innerHTML = "<p style='color:red;'>Failed to load worksheet.</p>";
-        console.error(err);
-      });
+  document.getElementById('content-object').data = file;
+  document.getElementById('default-message').style.display = 'none'; // 👈 ADD THIS
+  window.scrollTo({top:80, behavior:'smooth'});
+  
+  if(activeLink) activeLink.style.background = '';
+  
+  if(linkElement){
+    linkElement.style.background = '#ffe6f3';
+    activeLink = linkElement;
   }
 }
 </script>

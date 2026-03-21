@@ -171,21 +171,29 @@ box-shadow:0 5px 15px rgba(0,0,0,0.1);
 
 }
 
-.card button{
+.card button {
+  margin-top: 10px;
 
-margin-top:10px;
+  background: linear-gradient(45deg, #ff4da6, #1976d2); /* pink → blue */
+  color: white;
 
-background:#1976d2;
-color:white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
 
-border:none;
+  cursor: pointer;
+}
 
-padding:10px 18px;
+/* Ensure text inside button (like <a>) stays white */
+.card button a {
+  color: white;
+  text-decoration: none;
+}
 
-border-radius:6px;
-
-cursor:pointer;
-
+/* Keep it white on hover too */
+.card button a:hover {
+  color: white;
+  text-decoration: none;
 }
 
 /* FOOTER */
@@ -243,7 +251,7 @@ grid-template-columns:1fr;
 
 <div class="nav-left">
 
-<img src="logo.png">
+<a href="../index.html" class="logo"><img src="../logo.png" style="height:50px;"></a>
 
 <span>Math Unlimited</span>
 
@@ -306,32 +314,32 @@ srcdoc="
 
 <div class="card">
 <h3>Grade 1 Worksheets</h3>
-<button>Buy Now</button>
+<button><a href="../worksheets/grade1.html">Buy Now</a></button>
 </div>
 
 <div class="card">
 <h3>Grade 2 Worksheets</h3>
-<button>Buy Now</button>
+<button><a href="../worksheets/grade2.html">Buy Now</a></button>
 </div>
 
 <div class="card">
 <h3>Grade 3 Worksheets</h3>
-<button>Buy Now</button>
+<button><a href="../worksheets/grade3.html">Buy Now</a></button>
 </div>
 
 <div class="card">
 <h3>Grade 4 Worksheets</h3>
-<button>Buy Now</button>
+<button><a href="../worksheets/grade4.html">Buy Now</a></button>
 </div>
 
 <div class="card">
 <h3>Grade 5 Worksheets</h3>
-<button>Buy Now</button>
+<button><a href="../worksheets/grade5.html">Buy Now</a></button>
 </div>
 
 <div class="card">
 <h3>Grade 6 Worksheets</h3>
-<button>Buy Now</button>
+<button><a href="../worksheets/grade6.html">Buy Now</a></button>
 </div>
 
 </div>
@@ -342,21 +350,10 @@ srcdoc="
 <!-- FOOTER -->
 
 <footer>
-
-<h3>FunIQ.ca</h3>
-
-<p>Email: info@funiq.ca | Phone: +1 000 000 0000</p>
-
-<p>
-
-<a href="#">Facebook</a> |
-<a href="#">Instagram</a> |
-<a href="#">YouTube</a>
-
-</p>
-
-<p>© 2026 FunIQ.ca</p>
-
+<p>&copy; 2026 <a href="index.html">FunIQ.ca</a> | Contact: <a href="mailto:info@funiq.ca">info@FunIQ.ca</a> </p>
+<p>Follow us: <a href="#">Facebook</a> | 
+  <a href="https://www.instagram.com/funiq.ca" target="_blank">Instagram</a> | 
+  <a href="https://www.youtube.com/@funiqca" target="_blank">YouTube</a></p>
 </footer>
 
 </body>
