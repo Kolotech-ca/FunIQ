@@ -189,6 +189,20 @@
                 justify-content: center;
             }
         }
+	.btn {
+    		border: none;
+    		padding: 10px 20px;
+    		color: white;
+    		font-size: 16px;
+    		cursor: default; /* makes it non-clickable feeling */
+    		border-radius: 5px;
+    	     }
+
+    	/* Different colors */
+    	.math {    background-color: #e74c3c; /* red */    }
+    	.science {    background-color: #27ae60; /* green */}
+    	.english {    background-color: #2980b9; /* blue */}
+	    .social {    background-color: #f39c12; /* orange */}
     </style>
 </head>
 <body>
@@ -196,14 +210,14 @@
     <!-- Navbar -->
     <nav class="navbar">
         <div class="logo-title">
-            <div class="logo">FunIQ.ca </div>
-            <div class="title">📘 Buy 100 Questions Worksheets</div>
+            <a href="../index.html" class="logo"><img src="../logo.png" style="height:50px;"></a>
+            <div class="title">📘 Buy 100 Questions Worksheets <s>$19.99</s> $14.99</div>
         </div>
         <div class="nav-links">
-            <a href="#">Math</a>
-            <a href="#">Science</a>
-            <a href="#">English</a>
-            <a href="#">Social</a>
+            <button class="btn math">Math</button>
+            <button class="btn science">Science</button>
+            <button class="btn english">English</button>
+            <button class="btn social">Social</button>
         </div>
     </nav>
 
@@ -277,11 +291,11 @@
 
     <!-- Footer -->
     <footer>
-        <p>Email: <a href="mailto:info@FunIQ.ca">info@FunIQ.ca</a></p>
+        <p>&copy; 2026 <a href="index.html">FunIQ.ca</a> | Contact: <a href="mailto:info@funiq.ca">info@FunIQ.ca</a> </p>
         <div>
             <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/funiq.ca" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@funiqca" target="_blank"><i class="fab fa-youtube"></i></a>
         </div>
     </footer>
 
