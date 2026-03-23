@@ -7,6 +7,21 @@
     body { font-family: Arial; text-align: center; padding: 50px; }
     a { display: inline-block; margin-top: 20px; background: #28a745; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; }
     a:hover { background: #218838; }
+    .home-btn {
+      background: linear-gradient(45deg, pink, blue);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .home-btn:hover {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
@@ -28,6 +43,13 @@
       document.write(`<a href="${driveLinks[productId]}" target="_blank">Download Product</a>`);
     } else {
       document.write("<p>Sorry, product not found. If you have already paid for the product, please contact info@FunIQ.ca as soon as possible. We will check and rectify the issue within 24 hours.</p>");
+    }
+  </script>
+<button class="home-btn" onclick="goHome()">Go to Home</button>
+
+  <script>
+    function goHome() {
+      window.location.href = "../index.html"; // change to your home page URL
     }
   </script>
 </body>
