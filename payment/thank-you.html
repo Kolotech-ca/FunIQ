@@ -22,6 +22,13 @@
       opacity: 0.8;
       transform: scale(1.05);
     }
+     .gradient-hr {
+      border: 0;
+      height: 4px; /* thickness of the line */
+      background: linear-gradient(to right, pink, blue);
+      border-radius: 2px; /* optional rounded edges */
+      margin: 20px 0;
+    }
   </style>
 </head>
 <body>
@@ -34,9 +41,24 @@
     const productId = urlParams.get('product');
 
     const driveLinks = {
-      "prod1": "https://drive.google.com/uc?export=download&id=1woBL8WKWcxYbp-BwBlCE4rvc9niSbbsw",
-      "prod2": "https://drive.google.com/uc?export=download&id=1Uxd3M15fW0y0RM1SLaZiYcyEwL3dJkpv"
-      // Add all 18 products
+      "G7X2Q9L5PF": "https://drive.google.com/uc?export=download&id=1woBL8WKWcxYbp-BwBlCE4rvc9niSbbsw",
+      "M4D8V1K3YW": "https://drive.google.com/uc?export=download&id=1Uxd3M15fW0y0RM1SLaZiYcyEwL3dJkpv",
+      "R9T5C0S2JZ": "https://drive.google.com/uc?export=download&id=1MU_shxzgrGpSfrIpVlk5vT8r_J4ViLQO",
+      "Q2L7H8P4XF": "https://drive.google.com/uc?export=download&id=1RlL0m1NehcU-cx8Op4Hm4VAWTi2iQ-Hw",
+      "V6Z3K1M8TR": "https://drive.google.com/uc?export=download&id=1VvpBL5e1QtJ6b3bzwnuB-LyosNCdRidX",
+      "S9N4J5W0QB": "https://drive.google.com/uc?export=download&id=1dIqjU0kroBUNo5idFqKIbquwz2_ETM2-",
+      "C1Y8D7L5HZ": "https://drive.google.com/uc?export=download&id=1eJthEOLlW5cD0ehG0gnKulRb_TMy6u1a",
+      "B3F2X6Q9VM": "https://drive.google.com/uc?export=download&id=1NXwgfLuOSw1Bvp6HN5vYqn7r-QbNNQh7",
+      "K5P9N2R8LW": "https://drive.google.com/uc?export=download&id=1RHiuOdShpVm6ORbPoP9sHDrgqeXqO2VM",
+      "H4Q7S3V1JD": "https://drive.google.com/uc?export=download&id=1K27szaZ5-oFT5QK52y8OUr8fKB3705-e",
+      "T8L1C5M9XF": "https://drive.google.com/uc?export=download&id=1Ts3OOFJ4qVW4fNePk-wpifBNZw1AjTLD",
+      "W2Z6K0P7RY": "https://drive.google.com/uc?export=download&id=17APHK5YwK084W5dH9Rs15QTLpGFzzbaG",
+      "F9J3D4S6QN": "https://drive.google.com/uc?export=download&id=1cqayUGnzSgj-Qo716FhIoIkNKDKufcZg",
+      "L0M8H2V7KP": "https://drive.google.com/uc?export=download&id=1qwT6qXHV3T_oiyGySTh7_I5L0gdwt1XZ",
+      "D5C1R9X3WQ": "https://drive.google.com/uc?export=download&id=1NFkuTczSsivDGJWZayrMktM_wVuc64i5",
+      "N6B4J7Y2TZ": "https://drive.google.com/uc?export=download&id=1QyLt3HvlG8767Q4hmO0eFLCwygme_uI3",
+      "P3F8K5L1MV": "https://drive.google.com/uc?export=download&id=1ApwfCr_r8xBd5btu5tAG_D7Lz5-AAEGm",
+      "S7Q2T6D9XZ": "https://drive.google.com/uc?export=download&id=1OFFguekaPH-l7sxgiwJnJpTdD-jFyAlm"
     };
 
     if (driveLinks[productId]) {
@@ -45,7 +67,8 @@
       document.write("<p>Sorry, product not found. If you have already paid for the product, please contact info@FunIQ.ca as soon as possible. We will check and rectify the issue within 24 hours.</p>");
     }
   </script>
-<button class="home-btn" onclick="goHome()">Go to Home</button>
+  <hr class="gradient-hr">
+  <button class="home-btn" onclick="goHome()">&#127968; Home</button>
 
   <script>
     function goHome() {
