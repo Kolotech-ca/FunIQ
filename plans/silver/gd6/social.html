@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Grade 1 GK Game</title>
+<title>Grade 6 Social Studies Game</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
@@ -43,7 +43,7 @@ cursor:pointer;
 
 <div class="quiz-box">
 
-<h2>🌍 Grade 4 GK Game</h2>
+<h2>🌍 Grade 6 Social Studies Game</h2>
 
 <h3 id="question"></h3>
 <div id="options"></div>
@@ -59,16 +59,13 @@ cursor:pointer;
 <script>
 
 const quiz=[
-  {"question":"Which planet is known as the Red Planet?","o":["Mars","Earth","Venus","Jupiter"],"a":"Mars"},
-  {"question":"Which is the largest mammal?","o":["Elephant","Blue Whale","Lion","Giraffe"],"a":"Blue Whale"},
-  {"question":"Which bird cannot fly?","o":["Penguin","Crow","Sparrow","Parrot"],"a":"Penguin"},
-  {"question":"Which natural resource do we get from trees?","o":["Wood","Water","Metal","Rock"],"a":"Wood"},
-  {"question":"Which season comes after summer?","o":["Autumn","Winter","Spring","Summer"],"a":"Autumn"},
-  {"question":"Which is a source of fresh water?","o":["River","Car","House","Tree"],"a":"River"},
-  {"question":"Which planet is closest to the Sun?","o":["Mercury","Earth","Mars","Venus"],"a":"Mercury"},
-  {"question":"Which is a flying mammal?","o":["Bat","Dog","Cat","Cow"],"a":"Bat"},
-  {"question":"Which animal lays eggs?","o":["Hen","Cow","Dog","Sheep"],"a":"Hen"},
-  {"question":"Which is the tallest land animal?","o":["Giraffe","Elephant","Lion","Horse"],"a":"Giraffe"}
+{q:"Largest desert?", o:["Sahara","Gobi","Thar","Kalahari"], a:"Sahara"},
+{q:"First man on Moon?", o:["Neil Armstrong","Yuri Gagarin","Buzz Aldrin","John Glenn"], a:"Neil Armstrong"},
+{q:"Fastest bird?", o:["Peregrine Falcon","Eagle","Crow","Owl"], a:"Peregrine Falcon"},
+{q:"Longest river in Asia?", o:["Yangtze","Ganga","Indus","Mekong"], a:"Yangtze"},
+{q:"Which country has Eiffel Tower?", o:["France","Italy","Germany","Spain"], a:"France"},
+{q:"Largest mammal?", o:["Blue whale","Elephant","Giraffe","Shark"], a:"Blue whale"},
+{q:"Which planet is red planet?", o:["Mars","Venus","Mercury","Saturn"], a:"Mars"}
 ];
 
 let current=0;
@@ -83,27 +80,17 @@ const starsEl=document.getElementById("stars");
 
 function loadQuestion(){
 
-feedback.innerHTML="";
-
 let data=quiz[current];
-
-q.innerText=data.question;
-
+q.innerText=data.q;
 opt.innerHTML="";
 
 data.o.forEach(option=>{
 let div=document.createElement("div");
 div.className="option";
 div.innerText=option;
-
-div.onclick=function(){
-check(option);
-};
-
+div.onclick=()=>check(option);
 opt.appendChild(div);
 });
-
-starsEl.innerHTML="⭐".repeat(stars);
 
 }
 
@@ -112,9 +99,10 @@ function check(answer){
 if(answer===quiz[current].a){
 score++;
 stars++;
-feedback.innerHTML="✅ Correct!";
-}else{
-feedback.innerHTML="❌ Wrong! Correct: "+quiz[current].a;
+feedback.innerHTML="Correct!";
+}
+else{
+feedback.innerHTML="Wrong! Correct: "+quiz[current].a;
 }
 
 starsEl.innerHTML="⭐".repeat(stars);
@@ -123,14 +111,15 @@ current++;
 
 if(current<quiz.length){
 setTimeout(loadQuestion,1000);
-}else{
+}
+else{
 finish();
 }
 
 }
 
 function finish(){
-q.innerHTML="🏆 Quiz Completed!";
+q.innerHTML="Quiz Completed!";
 opt.innerHTML="";
 scoreEl.innerHTML="Score: "+score+" / "+quiz.length;
 }
