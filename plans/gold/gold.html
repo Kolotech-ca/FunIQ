@@ -1,214 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FunIQ Gold Page</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-  <style>
-    body { margin: 0; font-family: 'Nunito', sans-serif; background: #eaf6ff; }
-    html { scroll-padding-top: 80px;}
-    /* Navbar */
-    :root { --navbar-height: 70px;}
-    .navbar { position: fixed; top: 0; left: 0; width: 100%; background: linear-gradient(90deg, #ff4fa3, #2da9ff); display: flex; align-items: center; padding: 10px 20px; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-    .logo { font-size: 24px; font-weight: 700; color: white; text-decoration: none; }
-    .menu-container { display: flex; align-items: center; width: 100%; justify-content: center; }
-    .menu { display: flex; align-items: center; gap: 15px; }
-    .dropdown { position: relative; }
-    .dropbtn { background: none; border: none; color: white; font-size: 16px; cursor: pointer; padding: 8px 12px; font-weight: 600; }
-    .dropdown-content { max-height: 0; overflow: hidden; position: absolute; top: 100%; left: 0; background: #ffe6f3; min-width: 150px; box-shadow: 0 4px 6px rgba(0,0,0,0.2); z-index: 1000; border-radius: 6px; transition: max-height 0.3s ease; }
-    .dropdown-content a { color: #2da9ff; padding: 10px 12px; text-decoration: none; display: block; font-weight: 600; }
-    .dropdown-content a:hover { background: #ff4fa3; color: #fff; }
-    .dropdown:hover .dropdown-content { max-height: 500px; }
-    .buy-link { color: white; text-decoration: none; font-weight: 700; padding: 8px 12px; border-radius: 5px; transition: background 0.2s; }
-    .buy-link:hover { background: #ffe6f3; color: #ff4fa3; }
-    .square { width: 30px; height: 30px; background: #FFD700; color: white; font-weight: 700; display: flex; align-items: center; justify-content: center; border-radius: 4px; font-family: 'Poppins', sans-serif; font-size: 16px; }
-    /* Quiz Section */
-    #quiz-section { 
-      margin-top: var(--navbar-height); padding: 20px; min-height: 400px; border-radius: 10px; background: #fff; text-align: center; border: 5px solid #FFD700; }
-    button.answer-btn { display: block; margin: 10px auto; padding: 10px 20px; font-size: 16px; font-weight: 700; border-radius: 8px; border: none; cursor: pointer; background: #2da9ff; color: white; transition: 0.2s; }
-    button.answer-btn:hover { background: #ff4fa3; }
-    #feedback { margin-top: 15px; font-size: 18px; font-weight: 700; }
-    #scorecard { margin-top: 20px; font-size: 16px; font-weight: 600; }
-    /* Buy Worksheets */
-    .worksheets-section { margin: 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; border: 5px solid #FFD700; border-radius: 10px; padding: 20px; background: #f2f2f2; }
-    .worksheets-section h2 { grid-column: 1/-1; text-align: center; margin-bottom: 15px; color: #FFD700; font-family: 'Poppins', sans-serif; }
-    .worksheets-section .card { border: 2px solid #FFD700; border-radius: 10px; padding: 20px; text-align: center; background: #ffe6f3; cursor: pointer; font-weight: 700; transition: transform 0.2s, box-shadow 0.2s, background 0.2s; }
-    .worksheets-section .card:hover { transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3); background: #FFD700; color: #fff; }
-    footer { background: linear-gradient(90deg, #ff4fa3, #2da9ff); color: white; text-align: center; padding: 20px; margin-top: 20px; font-family: 'Nunito', sans-serif; }
-    footer a { color: #ffe6f3; text-decoration: none; font-weight: 600; }
-    footer a:hover { color: #ff4fa3; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FunIQ Gold Page</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+<style>
+body { margin: 0; font-family: 'Nunito', sans-serif; background: #eaf6ff; }
+html { scroll-padding-top: 80px;}
+:root { --navbar-height: 70px;}
+
+.navbar { position: fixed; top: 0; left: 0; width: 100%; background: linear-gradient(90deg, #ff4fa3, #2da9ff); display: flex; align-items: center; padding: 10px 20px; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+.logo img { height:50px; }
+
+.menu-container { display: flex; align-items: center; width: 100%; justify-content: center; }
+.menu { display: flex; align-items: center; gap: 15px; }
+
+.dropdown { position: relative; }
+.dropbtn { background: none; border: none; color: white; font-size: 16px; cursor: pointer; padding: 8px 12px; font-weight: 600; }
+
+.dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ffe6f3;
+  min-width: 150px;
+  border-radius: 6px;
+  transition: max-height 0.3s ease;
+}
+.dropdown-content a {
+  color: #2da9ff;
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+  font-weight: 600;
+}
+.dropdown-content a:hover { background:#ff4fa3; color:#fff; }
+.dropdown:hover .dropdown-content { max-height:500px; }
+
+.buy-link { color:white; text-decoration:none; font-weight:700; padding:8px 12px; }
+.buy-link:hover { background:#ffe6f3; color:#ff4fa3; }
+
+#quiz-section {
+  margin-top: var(--navbar-height);
+  padding: 20px;
+  min-height: 400px;
+  background: #fff;
+  border: 5px solid #FFD700;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.answer-btn {
+  display:block;
+  margin:10px auto;
+  padding:10px 20px;
+  border:none;
+  border-radius:8px;
+  background:#2da9ff;
+  color:white;
+  cursor:pointer;
+}
+.answer-btn:hover { background:#ff4fa3; }
+
+.worksheets-section {
+  margin:20px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  border:5px solid #FFD700;
+  border-radius:10px;
+  padding:20px;
+  background:#f2f2f2;
+}
+.worksheets-section h2 {
+  grid-column:1/-1;
+  text-align:center;
+  color:#FFD700;
+}
+
+.card {
+  border:2px solid #FFD700;
+  padding:20px;
+  text-align:center;
+  background:#ffe6f3;
+  cursor:pointer;
+  border-radius:10px;
+}
+.card:hover { background:#FFD700; color:white; transform:scale(1.05); }
+
+footer {
+  background: linear-gradient(90deg, #ff4fa3, #2da9ff);
+  color:white;
+  text-align:center;
+  padding:20px;
+}
+
+/* MODAL */
+#worksheetModal {
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.7);
+  z-index:2000;
+}
+.modal-content {
+  position:relative;
+  width:90%;
+  height:90%;
+  margin:3% auto;
+  background:white;
+  border-radius:10px;
+  overflow:hidden;
+}
+.close-btn {
+  position:absolute;
+  top:10px;
+  right:20px;
+  font-size:30px;
+  cursor:pointer;
+  color:#ff4fa3;
+}
+</style>
 </head>
+
 <body>
 
-<!-- Navbar -->
+<!-- NAVBAR (UNCHANGED) -->
 <nav class="navbar">
-  <a href="../../index.html" class="logo"><img src="../../logo.png" style="height:50px;"></a>
- 
-  <div class="menu-container">
-    <div class="menu" id="nav-menu">
-      <div class="dropdown"><button class="dropbtn">Grade 1</button>
-        <div class="dropdown-content">
-          <a href="#" onclick="startQuiz(1, 'Math')">Math</a>
-          <a href="#" onclick="startQuiz(1, 'Science')">Science</a>
-          <a href="#" onclick="startQuiz(1, 'English')">English</a>
-          <a href="#" onclick="startQuiz(1, 'Social')">Social</a>
-        </div>
-      </div>
-      <div class="dropdown"><button class="dropbtn">Grade 2</button>
-        <div class="dropdown-content">
-          <a href="#" onclick="startQuiz(2, 'Math')">Math</a>
-          <a href="#" onclick="startQuiz(2, 'Science')">Science</a>
-          <a href="#" onclick="startQuiz(2, 'English')">English</a>
-          <a href="#" onclick="startQuiz(2, 'Social')">Social</a>
-        </div>
-      </div>
-      <div class="dropdown"><button class="dropbtn">Grade 3</button>
-        <div class="dropdown-content">
-          <a href="#" onclick="startQuiz(3, 'Math')">Math</a>
-          <a href="#" onclick="startQuiz(3, 'Science')">Science</a>
-          <a href="#" onclick="startQuiz(3, 'English')">English</a>
-          <a href="#" onclick="startQuiz(3, 'Social')">Social</a>
-        </div>
-      </div>
-      <div class="dropdown"><button class="dropbtn">Grade 4</button>
-        <div class="dropdown-content">
-          <a href="#" onclick="startQuiz(4, 'Math')">Math</a>
-          <a href="#" onclick="startQuiz(4, 'Science')">Science</a>
-          <a href="#" onclick="startQuiz(4, 'English')">English</a>
-          <a href="#" onclick="startQuiz(4, 'Social')">Social</a>
-        </div>
-      </div>
-      <div class="dropdown"><button class="dropbtn">Grade 5</button>
-        <div class="dropdown-content">
-          <a href="#" onclick="startQuiz(5, 'Math')">Math</a>
-          <a href="#" onclick="startQuiz(5, 'Science')">Science</a>
-          <a href="#" onclick="startQuiz(5, 'English')">English</a>
-          <a href="#" onclick="startQuiz(5, 'Social')">Social</a>
-        </div>
-      </div>
-      <div class="dropdown"><button class="dropbtn">Grade 6</button>
-        <div class="dropdown-content">
-          <a href="#" onclick="startQuiz(6, 'Math')">Math</a>
-          <a href="#" onclick="startQuiz(6, 'Science')">Science</a>
-          <a href="#" onclick="startQuiz(6, 'English')">English</a>
-          <a href="#" onclick="startQuiz(6, 'Social')">Social</a>
-        </div>
-      </div>
+<a href="../../index.html" class="logo"><img src="../../logo.png"></a>
 
-      <a href="#worksheets" class="buy-link">Buy Worksheets</a>
-      <span class="buy-link" style="background: #FFD700; color: white; border-radius: 4px; padding: 6px 10px; margin-left: 0;">
-        <a href="#" class="logo" onclick="location.reload()">Gold</a>
-      </span>
+<div class="menu-container">
+<div class="menu">
+
+<!-- ALL GRADES -->
+<script>
+function gradeMenu(g){
+  return `
+  <div class="dropdown">
+    <button class="dropbtn">Grade ${g}</button>
+    <div class="dropdown-content">
+      <a href="#" onclick="startQuiz(${g}, 'Math')">Math</a>
+      <a href="#" onclick="startQuiz(${g}, 'Science')">Science</a>
+      <a href="#" onclick="startQuiz(${g}, 'English')">English</a>
+      <a href="#" onclick="startQuiz(${g}, 'Social')">Social</a>
     </div>
-  </div>
-</nav>
-
-<!-- Quiz Section -->
-<section id="quiz-section">
-  <p style="color: #aaa;">Select a grade and subject to start the quiz.</p>
-</section>
-
-<!-- Buy Printable Worksheets 3x2 grid -->
-<section class="worksheets-section" id="worksheets">
-  <h2>Buy Printable Worksheets</h2>
-  <div class="card" onclick="openModal('../../worksheets/grade1.html')">Grade 1</div>
-  <div class="card" onclick="openModal('../../worksheets/grade2.html')">Grade 2</div>
-  <div class="card" onclick="openModal('../../worksheets/grade3.html')">Grade 3</div>
-  <div class="card" onclick="openModal('../../worksheets/grade4.html')">Grade 4</div>
-  <div class="card" onclick="openModal('../../worksheets/grade5.html')">Grade 5</div>
-  <div class="card" onclick="openModal('../../worksheets/grade6.html')">Grade 6</div>
-</section>
-
-<footer>
-<p>&copy; 2026 <a href="../../index.html">FunIQ.ca</a> | Contact: <a href="mailto:info@funiq.ca">info@FunIQ.ca</a></p>
-<p>Follow us: 
-  <a href="#">Facebook</a> | 
-  <a href="https://www.instagram.com/funiq.ca" target="_blank">Instagram</a> | 
-  <a href="https://www.youtube.com/@funiqca" target="_blank">YouTube</a></p>
-</footer>
+  </div>`;
+}
+</script>
 
 <script>
-let questionsData = [];
-let currentList = [], index = 0, score = 0;
+document.write(
+  gradeMenu(1)+gradeMenu(2)+gradeMenu(3)+
+  gradeMenu(4)+gradeMenu(5)+gradeMenu(6)
+);
+</script>
 
-// Load questions.xlsx automatically from same folder
+<a href="#worksheets" class="buy-link">Buy Worksheets</a>
+
+<span class="buy-link" style="background:#FFD700;">
+<a href="#" onclick="location.reload()">Gold</a>
+</span>
+
+</div>
+</div>
+</nav>
+
+<!-- QUIZ -->
+<section id="quiz-section">
+<p style="color:#aaa;">Select a grade and subject to start the quiz.</p>
+</section>
+
+<!-- WORKSHEETS -->
+<section class="worksheets-section" id="worksheets">
+<h2>Buy Printable Worksheets</h2>
+
+<div class="card" onclick="openModal('../../worksheets/grade1.html')">Grade 1</div>
+<div class="card" onclick="openModal('../../worksheets/grade2.html')">Grade 2</div>
+<div class="card" onclick="openModal('../../worksheets/grade3.html')">Grade 3</div>
+<div class="card" onclick="openModal('../../worksheets/grade4.html')">Grade 4</div>
+<div class="card" onclick="openModal('../../worksheets/grade5.html')">Grade 5</div>
+<div class="card" onclick="openModal('../../worksheets/grade6.html')">Grade 6</div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p>&copy; 2026 <a href="../../index.html">FunIQ.ca</a></p>
+</footer>
+
+<!-- MODAL -->
+<div id="worksheetModal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">✖</span>
+    <iframe id="modalFrame" style="width:100%; height:100%; border:none;"></iframe>
+  </div>
+</div>
+
+<script>
+let questionsData = [], currentList=[], index=0, score=0;
+
 fetch('questions.xlsx')
-  .then(response => response.arrayBuffer())
-  .then(data => {
-    const workbook = XLSX.read(data, { type: 'array' });
-    questionsData = [];
-    workbook.SheetNames.forEach(sheetName => {
-      const sheet = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
-      sheet.forEach(row => { row.Grade = parseInt(sheetName.replace(/[^0-9]/g,'')); });
-      questionsData = questionsData.concat(sheet);
-    });
-    console.log("Questions loaded from questions.xlsx");
-  })
-  .catch(err => {
-    alert("Error loading questions.xlsx. Make sure the file is in the same folder and served via a web server.");
-    console.error(err);
+.then(r=>r.arrayBuffer())
+.then(data=>{
+  const wb = XLSX.read(data,{type:'array'});
+  wb.SheetNames.forEach(name=>{
+    const sheet = XLSX.utils.sheet_to_json(wb.Sheets[name]);
+    sheet.forEach(r=>r.Grade=parseInt(name.replace(/[^0-9]/g,'')));
+    questionsData = questionsData.concat(sheet);
   });
+});
 
-function startQuiz(grade, subject) {
-  if (questionsData.length === 0) {
-    alert("Questions not loaded yet. Please refresh the page.");
-    return;
-  }
-
-  currentList = questionsData.filter(q => q.Grade === grade && q.Subject === subject);
-  if (currentList.length === 0) {
-    document.getElementById("quiz-section").innerHTML = "<p style='color:red;'>No questions for this selection.</p>";
-    return;
-  }
-  index = 0; score = 0;
+function startQuiz(g,s){
+  currentList = questionsData.filter(q=>q.Grade===g && q.Subject===s);
+  index=0; score=0;
   showQuestion();
 }
 
-function showQuestion() {
-  if (index >= currentList.length) {
+function showQuestion(){
+  if(index>=currentList.length){
     document.getElementById("quiz-section").innerHTML =
-      `<h3>Quiz Finished!</h3><p id="scorecard">Your Score: ${score}/${currentList.length}</p>
-       <button onclick="startQuiz(currentList[0].Grade, currentList[0].Subject)">Retry</button>`;
+    `<h3>Finished</h3><p>${score}/${currentList.length}</p>`;
     return;
   }
-
-  const q = currentList[index];
+  const q=currentList[index];
   document.getElementById("quiz-section").innerHTML = `
-    <h3>Grade ${q.Grade} - ${q.Subject}</h3>
-    <p>${q.Question}</p>
-    <button class="answer-btn" onclick="checkAnswer('A')">A: ${q.OptionA}</button>
-    <button class="answer-btn" onclick="checkAnswer('B')">B: ${q.OptionB}</button>
-    <button class="answer-btn" onclick="checkAnswer('C')">C: ${q.OptionC}</button>
-    <button class="answer-btn" onclick="checkAnswer('D')">D: ${q.OptionD}</button>
-    <div id="feedback"></div>
-    <p id="scorecard">Score: ${score}/${currentList.length}</p>
-  `;
+  <h3>Grade ${q.Grade} - ${q.Subject}</h3>
+  <p>${q.Question}</p>
+  <button class="answer-btn" onclick="checkAnswer('A')">A: ${q.OptionA}</button>
+  <button class="answer-btn" onclick="checkAnswer('B')">B: ${q.OptionB}</button>
+  <button class="answer-btn" onclick="checkAnswer('C')">C: ${q.OptionC}</button>
+  <button class="answer-btn" onclick="checkAnswer('D')">D: ${q.OptionD}</button>`;
 }
 
-function checkAnswer(choice) {
-  const q = currentList[index];
-  const fb = document.getElementById("feedback");
-  if (choice === q.Answer) { score++; fb.textContent = "✔ Correct!"; fb.style.color = "green"; }
-  else { fb.textContent = `✘ Wrong! Answer: ${q.Answer}`; fb.style.color = "red"; }
+function checkAnswer(c){
+  if(c===currentList[index].Answer) score++;
   index++;
-  setTimeout(showQuestion, 1000);
+  showQuestion();
 }
-// Load HTML into Section 2 and highlight menu/card
-function loadHTML(file, linkElement=null) {
-  document.getElementById('content-object').data = file;
-  document.getElementById('default-message').style.display = 'none'; // 👈 ADD THIS
-  window.scrollTo({top:80, behavior:'smooth'});
-  
-  if(activeLink) activeLink.style.background = '';
-  
-  if(linkElement){
-    linkElement.style.background = '#ffe6f3';
-    activeLink = linkElement;
-  }
+
+/* MODAL */
+function openModal(file){
+  document.getElementById("worksheetModal").style.display="block";
+  document.getElementById("modalFrame").src=file;
+}
+function closeModal(){
+  document.getElementById("worksheetModal").style.display="none";
+  document.getElementById("modalFrame").src="";
+}
+window.onclick=function(e){
+  if(e.target.id==="worksheetModal") closeModal();
 }
 </script>
+
 </body>
 </html>
